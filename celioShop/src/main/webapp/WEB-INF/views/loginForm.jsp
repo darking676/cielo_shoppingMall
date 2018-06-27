@@ -26,8 +26,9 @@
 			<h2>Sign-in to your account !</h2>
 			<form action="/login">
 				<input type="text" placeholder=" 아이디" />
-				<input type="password" placeholder="비밀번호" />
-				<button type="submit" class="btn btn-default">Sign-In</button><br/>
+				<input type="password" placeholder="비밀번호" /><br/>
+				<button type="submit" class="btn btn-default">Sign-In</button>
+				<button type="button" class="btn btn-default">Find ID/PW</button><br/>
 				<a href="/join">회원이 아니신가요?"</a><!-- 회원가입 폼으로 이동 -->
 			</form>
 		</div>

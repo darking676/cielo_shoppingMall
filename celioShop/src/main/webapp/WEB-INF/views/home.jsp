@@ -10,6 +10,10 @@
 <%@ include file="template/header.jsp" %>
 <!-- header -->
 <style type="text/css">
+	.navbar .ccc{
+		color: skyblue;
+		font-style: italic;
+	}
 	#carousel img{
 		width: 300px;
 		height: 200px;
@@ -17,8 +21,15 @@
 	#carousel input{
 		text-align: center;
 	}
+	#carousel #e1{
+		position: static;
+		top: 10;
+	}
 	.foot h2,p{
 		color: white;
+	}
+	#accordian{
+		display: inline;
 	}
 </style>
 
@@ -30,15 +41,16 @@
 <!-- Products Category -->
 
 <!-- Event Slider -->
-<%@ include file="template/slider.jsp" %>
+<%@ include file="template/slider2.jsp" %>
 <!-- /Event Slider -->
 
 <!-- products -->
-<%@ include file="template/products.jsp" %>
+<%-- <%@ include file="template/products.jsp" %> --%>
 <!-- /products -->
 
 <!-- Footer -->
 <%@ include file="template/footer.jsp" %>
 <!-- /Footer -->
+
 </body>
 </html>

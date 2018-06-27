@@ -12,27 +12,42 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
-<link href="css/prettyPhoto.css" rel="stylesheet">
-<link href="css/price-range.css" rel="stylesheet">
-<link href="css/animate.css" rel="stylesheet">
-<link href="css/main.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing-1.3.min.js"></script>
+<script src="js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script src="js/shop.js"></script>
 
 <title>CIELO #</title>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="./">
-        <p>CIELO</p>
-      </a>
-      <p class="navbar-text">Welcome to CIELO ...</p>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-    	<li><a href="/login">sign-in</a></li>
-    	<li><a href="/join">sign-up</a></li>
-    </ul>
-  </div> 
-</nav>
+<div class="navbar">
+	  <div class="navbar-inner navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			<a class="navbar-brand" href="/">
+         <p class="ccc">CIELO</p>
+       </a>
+       </div>
+		  <div class="nav-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a data-toggle="dropdown" class="dropdown-toggle"><span class="icon-lock"></span> Sign-In <b class="caret"></b></a>
+					<div class="dropdown-menu">
+					<form class="form-horizontal loginFrm">
+					  <div class="control-group">
+						<input type="text" class="span2" id="inputId" placeholder="ID">
+					  </div>
+					  <div class="control-group">
+						<input type="password" class="span2" id="inputPassword" placeholder="Password">
+					  </div>
+					  <div class="control-group">
+						<button type="submit" class="shopBtn btn-block">Sign in</button>
+					  </div>
+					</form>
+					</div>
+				</li>
+				<li><a href="/mem/"> Sign-Up</a></li>
+			</ul>
+		  </div>
+		</div>
+	  </div>
+	</div>

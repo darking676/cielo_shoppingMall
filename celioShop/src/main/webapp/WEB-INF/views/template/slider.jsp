@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div class="container">
-	<div class="col-sm-10">
+	<div class="well">
 		<div id="carousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -36,7 +36,7 @@
 	</div>
 			<br/><br/><br/>
 		
-	<div class="col-sm-10">	
+	<div class="well">	
 		<div id="carousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -71,7 +71,7 @@
 	</div>
 		<br/><br/><br/>
 		
-	<div class="col-sm-10">
+	<div class="well">
 		<div id="carousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
