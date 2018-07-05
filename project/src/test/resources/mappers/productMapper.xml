@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.bit.shop01.mapper.productMapp">
+	<select id="selectAll">
+		select * from product order by productNum
+	</select>
+	
+	<select id="selectOne">
+		select * from product where productNum=#{productNum }
+	</select>
+	
+	<insert id="insertOne">
+		insert into product values(#{productNum }, #{productType }, #{productName }, #{explan }, #{price }, #{inventory }, #{proimg })
+	</insert>
+	
+	<update id="updateOne">
+		update product set productName=#{productName }, explan=#{explan }, price=#{price }, inventory=#{inventory }, proimg=#{proimg }
+	</update>
+	
+	<delete id="deleteOne">
+		delete from product where productNum=#{productNum }
+	</delete>
+	
+</mapper>
