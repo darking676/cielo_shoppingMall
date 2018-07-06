@@ -15,8 +15,29 @@ body { font-family: 'Nanum Gothic', sans-serif;}
 <body>
 <%@ include file="../template/header2.jsp" %>
 <!-- content -->
-
-
+<!-- num proimg proname numbers(or +update) checkbox(or delete) -->
+<table>
+	<thead>
+		<tr>
+			<th>번호</th>
+			<th>상품</th>
+			<th>상품 이름</th>
+			<th>수량</th>
+			<th>수정/삭제</th>
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach items="${clist }" var="cean">
+			<tr>
+				<td>${cean.productNum }</td>
+				<td>${cean.proImg }</td>
+				<td>${cean.productName }</td>
+				<td>${cean.numbers }</td>
+				<td></td>
+			</tr>
+		</c:forEach>
+	</tbody>
+</table>
 
 <!-- /content -->
 <%@ include file="../template/footer.jsp" %>

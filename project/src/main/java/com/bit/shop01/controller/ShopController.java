@@ -51,4 +51,9 @@ public class ShopController {
 		return "saleDetail";
 	}
 	
+	@RequestMapping("/cart/")
+	public String cart(Model model,HttpServletRequest req) throws SQLException {
+		return "cart";
+	}
+	
 	}
