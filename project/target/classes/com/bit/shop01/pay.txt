@@ -1,0 +1,25 @@
+부트페이 CDN
+<script src="https://cdn.bootpay.co.kr/js/bootpay-2.0.6.min.js" type="application/javascript"></script>
+
+부트페이 javascript
+import BootPay from "bootpay-js"
+
+부트페이 json
+{
+  "dependencies": {
+    "bootpay_js": "^2.0.6"
+  }
+}
+
+부트페이 github
+https://github.com/bootpay/bootpay_js
+
+========================================================================================================
+
+아임포트
+http://www.iamport.kr/getstarted
+
+아임포트 github
+https://github.com/iamport/iamport-rest-client-java-hc
+
+

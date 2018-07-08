@@ -26,6 +26,6 @@ public interface CartDao {
 	// 장바구니 금액
 	public int total(String memId) throws SQLException;
 
-	// 수량 수정
+	// 장바구니에 담긴 상품수량 수정
 	public void update1(CartVo cv);
 }
