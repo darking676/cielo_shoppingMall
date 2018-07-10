@@ -12,7 +12,7 @@ import com.bit.shop01.model.entity.CartVo;
 @Service
 public class CartDaoImpl implements CartDao {
 
-	@Inject
+//	@Inject
 	CartDao cdao;
 	
 	@Override

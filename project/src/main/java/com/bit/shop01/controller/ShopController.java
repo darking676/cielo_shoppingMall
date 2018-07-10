@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ShopController {
  
-	@Autowired
+//	@Autowired
 	SqlSession sqlSession;
 
 	@RequestMapping("/outer/")

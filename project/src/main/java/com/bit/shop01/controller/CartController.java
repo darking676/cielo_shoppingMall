@@ -21,7 +21,7 @@ import com.bit.shop01.model.entity.CartVo;
 @RequestMapping("/shop01/cart/**")
 public class CartController{
 	
-	@Autowired
+//	@Autowired
 	CartDao cdao;
 	
 	@RequestMapping("cartIn")
