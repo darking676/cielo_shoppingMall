@@ -1,25 +1,37 @@
-ΊΞΖ®ΖδΐΜ CDN
+λ¶€νΈνμ΄ CDN
 <script src="https://cdn.bootpay.co.kr/js/bootpay-2.0.6.min.js" type="application/javascript"></script>
 
-ΊΞΖ®ΖδΐΜ javascript
+λ¶€νΈνμ΄ javascript
 import BootPay from "bootpay-js"
 
-ΊΞΖ®ΖδΐΜ json
+λ¶€νΈνμ΄ json
 {
   "dependencies": {
     "bootpay_js": "^2.0.6"
   }
 }
 
-ΊΞΖ®ΖδΐΜ github
+λ¶€νΈνμ΄ github
 https://github.com/bootpay/bootpay_js
 
 ========================================================================================================
 
-ΎΖΐΣΖχΖ®
+μ•„μ„ν¬νΈ
 http://www.iamport.kr/getstarted
 
-ΎΖΐΣΖχΖ® github
+μ•„μ„ν¬νΈ github
 https://github.com/iamport/iamport-rest-client-java-hc
 
+μ•„μ„ν¬νΈ javascript
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-x.y.z.js"></script>
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
+κ°€λ§Ήμ  μ‹λ³„μ½”λ“
+μ‹¤μ  - imp42290782
+TEST - TC0ONETIME / TCSUBSCRIP
+
+REST api_key
+8542999742312688
+
+REST api_secret
+iORsNRtGoYYjTU5kbptq4hfuzupDdhSv6KXTCqA1pykitqCFP65ToloXPNB25uxbev5QWFRlecDHCfnr
