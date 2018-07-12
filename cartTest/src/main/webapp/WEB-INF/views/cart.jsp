@@ -99,6 +99,7 @@
 <br>
 
 <a href="pay/" class="btn" id="go_payment" name="payment">결제하기</a>	 
+<a href="login/" class="btn" id="go_kakao" name="login">kakao</a>	 
 
 <a href="#this" class="btn" id="product_list" >상품목록</a>
 <c:set var="session" value="<%=session.getAttribute(\"memId\")%>" />

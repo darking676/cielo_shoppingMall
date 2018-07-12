@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.bit.cart.model.CartDao;
 
@@ -24,9 +23,14 @@ public class HomeController {
 		return "cart";
 	}
 	
+	@RequestMapping("/login/")
+	public String login() {
+		return "kakaoLogin";
+	}
+	
 	@RequestMapping("/pay/")
 	public String pay() {
-		return "paymentList";
+		return "kakaopay";
 	}
 	
 //	public ModelAndView selectCartUp() {
