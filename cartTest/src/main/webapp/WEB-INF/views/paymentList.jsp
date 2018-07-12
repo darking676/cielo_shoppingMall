@@ -7,6 +7,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src=""></script>
+<script type="text/javascript">
+        $(document).ready(function(){
+        	$("#go_payment").on("click", function(e){
+                e.preventDefault();
+                fn_go_payment($(this));
+            });            
+        	$("#product_list").on("click", function(e){
+                e.preventDefault();
+                fn_go_product_list();
+            });
+		});
+        
+        function fn_go_payment(pl){   //결제
+            var comSubmit = new ComSubmit();	
+            var p_id = "";
+            var number = "";
+            var sub_pay = "";
+            
+			for (var i = 0; i < ${modi_number}; i++) {
+	          	p_id += $("#product_id" + i).val() + ",";
+	          	number += $("#number" + i).val() + ",";									
+	          	sub_pay += $("#sub_pay" + i).val() + ",";									
+			}
+            comSubmit.setUrl("<c:url value='/views/PaymentProcess.do' />");
+            comSubmit.addParam("wish_userid", $("#user_id").val());
+            comSubmit.addParam("p_id", p_id);
+            comSubmit.addParam("p_stock", number);
+            comSubmit.addParam("p_price", sub_pay);
+            comSubmit.submit();
+        }
+        function fn_go_product_list(){   //결제취소
+        	var comSubmit = new ComSubmit();
+            comSubmit.setUrl("<c:url value='/views/BasketView.do' />");
+            comSubmit.addParam("wish_userid", $("#user_id").val());
+            comSubmit.submit();
+        }
+</script>
 </head>
 <body>
 <table>
@@ -98,10 +136,45 @@
 
 <br>
 
-<a href="pay/" class="btn" id="go_payment" name="payment">결제하기</a>	 
+<table style="border: 1px solid  #cc" class="board_list">
+	<colgroup>
+		<col width="10%" />
+		<col width="20%" />
+		<col width="10%" />
+		<col width="20%" />
+		<col width="10%" />
+		<col width="10%" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col" colspan="2">주문정보</th>
+		</tr>
+		<tr>
+			<th scope="col">카드</th>
+			<th><input type="text" placeholder="enter card numbers"/></th>
+		</tr>
+		<tr>
+			<th scope="col">금액 상환일(일시불/~3개월)</th>
+			<th>
+				<select>
+						<option>일시불</option>
+						<option>무이자 1개월</option>
+						<option>무이자 2개월</option>
+						<option>무이자 3개월</option>
+				</select>
+			</th>
+		</tr>
+		<tr>
+			<th scope="col">주소</th>
+			<th><input type="text" placeholder="enter member's address"/></th>
+		</tr>
+	</thead>
+</table><br/>
 
-<a href="#this" class="btn" id="product_list" >상품목록</a>
-<c:set var="session" value="<%=session.getAttribute(\"memId\")%>" />
-<%@ include file="pList.jsp" %>
+<div style="text-align: center;">
+	<a href="#" class="btn" id="go_payment">결제하기</a>
+	<a href="#" class="btn" id="product_list">결제 취소</a>
+</div>
+
 </body>
 </html>
