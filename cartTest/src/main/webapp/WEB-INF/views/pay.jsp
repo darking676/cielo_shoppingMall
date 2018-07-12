@@ -12,6 +12,7 @@
         // 로그인 성공시, API를 호출합니다.(결제 준비)
         Kakao.API.request({
 	        url: '/v1/payment/ready',
+	        img: '/resources/payM.png',
 	        success: function(res) {
 	        	alert(JSON.stringify(res));
 	        },
