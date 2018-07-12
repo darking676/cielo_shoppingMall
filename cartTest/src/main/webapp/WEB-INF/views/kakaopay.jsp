@@ -18,18 +18,22 @@
     Kakao.init('a298e57f808781924ebcb67ce66dcbb1');
     // 카카오 로그인 버튼을 생성합니다.
     Kakao.Auth.createLoginButton({
-      container: '#kakao-login-btn',
-      success: function(authObj) {
+		container: '#kakao-login-btn',
+		// login 성공시 ...
+		success: function(authObj) {
     	  Kakao.API.request({
-  	        url: '/v1/user/me',
+  	        url: '/v1/api/payment/ready',
+  	        // 결제 준비 성공시 ...
   	        success: function(res) {
   	        	alert(JSON.stringify(res));
   	        },
+  	        // 결제 준비 실패시 ...
   	        fail: function(error) {
   	        	alert(JSON.stringify(error));
   	        }
-  	    });
+		});
       },
+      // login 실패시 ...
       fail: function(err) {
         alert(JSON.stringify(err));
       }
