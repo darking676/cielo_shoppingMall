@@ -1,7 +1,7 @@
 <h1>CIELO DB</h1>
 
 -- 회원
-CREATE TABLE mem (
+CREATE TABLE mem (<br/>
 	memId         VARCHAR2(30)  primary key,     
 	memName       VARCHAR2(30)  NOT NULL,   
 	memPassword   VARCHAR2(30)  NOT NULL,    
@@ -23,7 +23,7 @@ CREATE UNIQUE INDEX PK_mem
 
 
 -- 상품
-CREATE TABLE product (
+CREATE TABLE product (<br/>
 	productNum   INT          primary key,
 	productType  VARCHAR(30)  NOT NULL,     
 	productName  VARCHAR(30)  NOT NULL,     
@@ -42,7 +42,7 @@ CREATE UNIQUE INDEX PK_product
 
 
 -- 장바구니
-CREATE TABLE basket (
+CREATE TABLE basket (<br/>
 	basketNum   INT          primary key, 
 	memId       VARCHAR(30)  NOT NULL,     
 	productNum  INT          NOT NULL,     
@@ -59,7 +59,7 @@ CREATE UNIQUE INDEX PK_basket
 
 
 -- 결제
-CREATE TABLE payment(
+CREATE TABLE payment(<br/>
 	paymentNum          INT          primary key, 
 	memId               VARCHAR(30)  NOT NULL,     
 	productNum          INT          NOT NULL,    
@@ -81,7 +81,7 @@ CREATE UNIQUE INDEX PK_payment
 
 
 -- 게시판
-CREATE TABLE shop_bbs(
+CREATE TABLE shop_bbs(<br/>
 	bbsNum    INTEGER        primary key, 
 	memId     VARCHAR(30)    NOT NULL,     
 	title     VARCHAR(60)    NOT NULL,    
