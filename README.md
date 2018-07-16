@@ -1,7 +1,7 @@
 <h1>CIELO DB</h1>
 
 -- 회원
-CREATE TABLE mem (<br/>
+CREATE TABLE members (
 	memId         VARCHAR2(30)  primary key,     
 	memName       VARCHAR2(30)  NOT NULL,   
 	memPassword   VARCHAR2(30)  NOT NULL,    
@@ -23,14 +23,14 @@ CREATE UNIQUE INDEX PK_mem
 
 
 -- 상품
-CREATE TABLE product (<br/>
+CREATE TABLE product (
 	productNum   INT          primary key,
-	productType  VARCHAR(30)  NOT NULL,     
-	productName  VARCHAR(30)  NOT NULL,     
-	explan       VARCHAR(300)  NOT NULL,    
+	productType  VARCHAR2(30)  NOT NULL,     
+	productName  VARCHAR2(30)  NOT NULL,     
+	explan       VARCHAR2(300)  NOT NULL,    
 	price        INT          NOT NULL,    
         inventory    INT          NOT NULL,
-        proImg       VARCHAR(300)	NOT NULL    
+        proImg       VARCHAR2(300)	NOT NULL    
 );
 
 -- 상품
@@ -42,9 +42,9 @@ CREATE UNIQUE INDEX PK_product
 
 
 -- 장바구니
-CREATE TABLE basket (<br/>
+CREATE TABLE basket (
 	basketNum   INT          primary key, 
-	memId       VARCHAR(30)  NOT NULL,     
+	memId       VARCHAR2(30)  NOT NULL,     
 	productNum  INT          NOT NULL,     
 	numbers     INT          NOT NULL    
 );
@@ -59,15 +59,15 @@ CREATE UNIQUE INDEX PK_basket
 
 
 -- 결제
-CREATE TABLE payment(<br/>
+CREATE TABLE payment(
 	paymentNum          INT          primary key, 
-	memId               VARCHAR(30)  NOT NULL,     
+	memId               VARCHAR2(30)  NOT NULL,     
 	productNum          INT          NOT NULL,    
 	numbers             INT          NOT NULL,     
-	address             VARCHAR(60)  NOT NULL,     
-	hp                  VARCHAR(30)  NOT NULL,     
-	creditcardNum       VARCHAR(30)  NOT NULL,     
-	creditcardPassword  VARCHAR(10)  NOT NULL    
+	address             VARCHAR2(60)  NOT NULL,     
+	hp                  VARCHAR2(30)  NOT NULL,     
+	creditcardNum       VARCHAR2(30)  NOT NULL,     
+	creditcardPassword  VARCHAR2(10)  NOT NULL    
 );
 
 
@@ -81,13 +81,13 @@ CREATE UNIQUE INDEX PK_payment
 
 
 -- 게시판
-CREATE TABLE shop_bbs(<br/>
+CREATE TABLE shop_bbs(
 	bbsNum    INTEGER        primary key, 
-	memId     VARCHAR(30)    NOT NULL,     
-	title     VARCHAR(60)    NOT NULL,    
-	contents  VARCHAR(300)   NOT NULL,     
+	memId     VARCHAR2(30)    NOT NULL,     
+	title     VARCHAR2(60)    NOT NULL,    
+	contents  VARCHAR2(300)   NOT NULL,     
 	bbs_date      DATE           NOT NULL, 
-        bbsImg        VARCHAR(300)   NOT NULL
+        bbsImg        VARCHAR2(300)   NOT NULL
 );
 
 
@@ -104,8 +104,7 @@ CREATE UNIQUE INDEX PK_shop_bbs
 create sequence shop_bbs_seq;
 
 (글번호 자동 증가 .nextval)
-insert into shop_bbs values(shop_bbs_seq.nextval,'alfos77','테스트용1','내용 나오는지 테스트~~',sysdate);
-insert into shop_bbs values(shop_bbs_seq.nextval,'alfos79','테스트용2','내용 나오는지 테스트222~~',sysdate);
+insert into shop_bbs values(shop_bbs_seq.nextval,'alfos77','테스트용1','내용 나오는지 테스트',sysdate);
 select * from shop_bbs;
 
 
@@ -115,9 +114,9 @@ comments_seq.nextval
 CREATE TABLE comments (
 	commentsNum        INT            primary key, 
 	bbsNum             INT            NOT NULL,      
-	memId              VARCHAR(30)    NOT NULL,    
+	memId              VARCHAR2(30)    NOT NULL,    
 	commentsDate       DATE           NOT NULL,   
-	commentsContents   VARCHAR(300)   NOT NULL     
+	commentsContents   VARCHAR2(300)   NOT NULL     
 );
 
 
@@ -136,10 +135,11 @@ create sequence comments_seq;
 -- 후기게시판(상품상세페이지 밑)
 CREATE TABLE shop_bbs_review(
 	reviewNum    INTEGER        primary key, 
-	memId     VARCHAR(30)    NOT NULL,     
-	title     VARCHAR(60)    NOT NULL,    
-	contents  VARCHAR(300)   NOT NULL,     
-	review_date  DATE           NOT NULL
+	memId     VARCHAR2(30)    NOT NULL,     
+	title     VARCHAR2(60)    NOT NULL,    
+	contents  VARCHAR2(300)   NOT NULL,     
+	review_date  DATE           NOT NULL,
+	proImg	VARCHAR2(300)
 );
 
 
