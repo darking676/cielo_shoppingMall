@@ -26,13 +26,13 @@ public class ShopController {
 	
 	@RequestMapping("/bottom/")
 	public String bottom(Model model,HttpServletRequest req) throws SQLException {
-			return "botDetail";
+		return "botDetail";
 	}
 
 	
 	@RequestMapping("/dress/")
 	public String dress(Model model,HttpServletRequest req) throws SQLException {
-	return "dreDetail";
+		return "dreDetail";
 	}
 
 	
@@ -46,13 +46,5 @@ public class ShopController {
 	public String sale(Model model,HttpServletRequest req) throws SQLException {
 		return "saleDetail";
 	}
-
-	   
 	
-	
-	}
-	
-
-
-	
-
+}

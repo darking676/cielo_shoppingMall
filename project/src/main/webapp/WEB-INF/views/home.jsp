@@ -181,7 +181,7 @@ body { font-family: 'Nanum Gothic', sans-serif;}
 <div class="container">
 	<div class="row">
 	  <div class="col-md-3">
-	    <a><img  src="resources/imgs/img01.jpg" alt="..." class="img-responsive img-rounded"></a>
+	    <a><img  src="resources/imgs/img01.jpg" alt="T01_1" class="img-responsive img-rounded"></a>
 	    <br/>
 	    <a href="#">하늘하늘원피스(5 color)</a>
 	    <h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
@@ -206,6 +206,7 @@ body { font-family: 'Nanum Gothic', sans-serif;}
 	    <h5>35,000원</h5>
 	    <br/>
 	  </div>  
+	  
 	  <div class="col-md-3">
 	    <a><img src="resources/imgs/img02.jpg" alt="..." class="img-responsive img-rounded"></a>
 	    <br/>
@@ -232,6 +233,7 @@ body { font-family: 'Nanum Gothic', sans-serif;}
 	    <h5>35,000원</h5>
 	    <br/>
 	  </div>  
+	  
 	  <div class="col-md-3">  
 	    <a><img src="resources/imgs/img01.jpg" alt="..." class="img-responsive img-rounded"></a>
 	    <br/>
@@ -257,10 +259,11 @@ body { font-family: 'Nanum Gothic', sans-serif;}
 	    <h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
 	    <h5>35,000원</h5>
 	    <br/>
-	  </div>
-	  </div>
-	  </div>
-	  <br/>
+		</div>
+	</div>
+</div>
+
+<br/>
 <br/>
 <br/>
 <br/>
