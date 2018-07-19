@@ -50,19 +50,19 @@ body { font-family: 'Nanum Gothic', sans-serif;}
             $("#list").on("click",function(e){
                 e.preventDefault();
                 fn_openBoardList();
-            })
+            });
             $("#write").on("click",function(e){
                 e.preventDefault();
                 fn_writeBoard();
-            })
+            });
             $("a[name='delete']").on("click",function(e){
                 e.preventDefault();
                 fn_fileDelete($(this));
-            })
+            });
             $("#add").on("click",function(e){
                 e.preventDefault();
                 fn_fileAdd();
-            })
+            });
         });
          
          
@@ -87,7 +87,7 @@ body { font-family: 'Nanum Gothic', sans-serif;}
             $("a[name='delete']").on("click",function(e){
                 e.preventDefault();
                 fn_fileDelete($(this));         
-            })
+            });
         }
     </script>
 <%@ include file="../template/footer.jsp" %>
