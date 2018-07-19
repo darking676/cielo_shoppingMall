@@ -30,9 +30,10 @@ public class UploadController {
 	@Resource(name="uploadPath")
 	String uploadPath;
 	
-	@RequestMapping(value="/upload/uploadForm",method = RequestMethod.POST)
+	@RequestMapping(value="/upload/uploadForm",method = RequestMethod.GET)
 	public void uploadForm() {}
 	
+	@RequestMapping(value="/upload/uploadForm",method = RequestMethod.POST)
 	public ModelAndView uploadForm(MultipartFile file, ModelAndView mav) throws Exception {
 		String savedName = file.getOriginalFilename();
 		logger.info("파일이름 : "+file.getOriginalFilename());
@@ -57,13 +58,13 @@ public class UploadController {
 	
 	/*AJAX*/
 	
-	@RequestMapping(value="/uploading/uploadAjax", method = RequestMethod.GET)
+	@RequestMapping(value="/upload/uploadAjax", method = RequestMethod.GET)
 	public void uploadAjax() {
 		// uploadAjax.jsp로 포워딩
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/uploading/uploadAjax", method = RequestMethod.POST, produces = "text/plain; charset=UTF-8")
+	@RequestMapping(value = "/upload/uploadAjax", method = RequestMethod.POST, produces = "text/plain; charset=UTF-8")
 	public ResponseEntity<String> uploadAjax(MultipartFile file) throws Exception {
 		logger.info("originalName : "+file.getOriginalFilename());
 		logger.info("size : "+file.getSize());
@@ -107,7 +108,13 @@ public class UploadController {
 	public ResponseEntity<String> deleteFile(String fileName) {
 		String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
 		MediaType mType = MediaUtils.getMediaType(formatName);
-		return null;
+		if(mType != null) {
+			String front = fileName.substring(0, 12);
+			String end = fileName.substring(14);
+			
+			new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
+		}
+		return new ResponseEntity<String>("deleted", HttpStatus.OK);
 	}
 	
 }

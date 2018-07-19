@@ -5,6 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	.fileDrop {
+		width: 600px;
+		height: 70px;
+		border: 2px dotted gray;
+		background-color: gray;
+	}
+</style>
+
 <script type="text/javascript">
 	$(".fileDrop").on("drop", function(event){
 		event.preventDefault();
@@ -23,7 +32,7 @@
 			contentType: false,
 			
 			success: fuction(data){
-				var str = "";
+				var str = ""; 
 				// 이미지 파일이면 썸네일 이미지 출력
 				if(chkeckImageType(data)){
 					str = "<div><a href='${path}/upload/displayFile?fileName="getImageLink(data)+"'>";
@@ -38,7 +47,7 @@
 				$(".uploadedList").append(str);
 			}
 		});
-	});
+	}); 
 	
 	$(".uploadedList").on("click", "span", function(event){
 	    alert("이미지 삭제")
@@ -95,11 +104,20 @@
 </script>
 </head>
 <body>
-<h2>AJAX File Upload</h2>
 <!-- 파일을 업로드할 영역 -->
-<div class="fileDrop"></div>
-<!-- 업로드된 파일 목록 -->
-<div class="uploadedList"></div>
+<form id="form1" target="iframePhoto" action="${path }/upload/uploadForm" method="post" enctype="multipart/form-data">
+	<input type="file" name="file" />
+	<input type="submit" value="upload" />
+</form>
+<!-- 업로드된 파일 목록 --><!-- form-data가 이곳으로 이동 -->
+<iframe name="iframePhoto"></iframe>
+<script type="text/javascript">
+	function addFilePath(msg) {
+		console.log(msg);
+		document.getElementById("form1").reset();
+	}
+</script>
+<div id="uploadList"></div>
 <body>
 </body>
 </html>
