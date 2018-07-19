@@ -5,16 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
+<!-- <style type="text/css">
 	.fileDrop {
 		width: 600px;
 		height: 70px;
 		border: 2px dotted gray;
 		background-color: gray;
 	}
-</style>
+</style> -->
 
 <script type="text/javascript">
+$(document).ready(function() {
 	$(".fileDrop").on("drop", function(event){
 		event.preventDefault();
 		var files = event.originalEvent.dataTransfer.files;
@@ -46,7 +47,7 @@
 				str += "<span data-src="+data+">[삭제]</span></div>";
 				$(".uploadedList").append(str);
 			}
-		});
+		}); 
 	}); 
 	
 	$(".uploadedList").on("click", "span", function(event){
@@ -101,17 +102,22 @@
 	    var pattern = /jpg|gif|png|jpeg/i; // 정규표현식
 	    return fileName.match(pattern); // 규칙이 맞으면 true
 	}
+});
 </script>
 </head>
-<body>
+<body> 
 <!-- 파일을 업로드할 영역 -->
 <form id="form1" target="iframePhoto" action="${path }/upload/uploadForm" method="post" enctype="multipart/form-data">
 	<input type="file" name="file" />
 	<input type="submit" value="upload" />
 </form>
+
 <!-- 업로드된 파일 목록 --><!-- form-data가 이곳으로 이동 -->
 <iframe name="iframePhoto"></iframe>
 <script type="text/javascript">
+	function addFile() {
+		
+	}
 	function addFilePath(msg) {
 		console.log(msg);
 		document.getElementById("form1").reset();

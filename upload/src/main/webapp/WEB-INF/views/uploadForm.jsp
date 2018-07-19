@@ -11,7 +11,7 @@
 <c:choose>
 	<c:when test="${empty userImage }">
 		<div>
-			<img id ="profileImg" src = "/displayFile?fileName=${userImage }" style = "border-radius:0%; padding-top : 10px; height:100px; width:100px;">
+			<img id ="profileImg" src = "/displayFile?fileName=/lion.gif" style = "border-radius:0%; padding-top : 10px; height:100px; width:100px;">
 		</div>
 	</c:when>
 	<c:otherwise>

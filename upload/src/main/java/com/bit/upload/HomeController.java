@@ -17,10 +17,5 @@ public class HomeController {
 		return "uploadAjax";
 	}
 	
-	@RequestMapping(value = "/uploadForm", method = RequestMethod.POST)
-	public String uploadRes() {
-		
-		return "uploadForm";
-	}
 	
 }
