@@ -65,7 +65,7 @@ public class UploadController {
 		return savedName;
 	}
 	
-	/*AJAX*/
+	/*AJAX*/ 
 
 	@RequestMapping(value = "/upload/uploadAjax", method = RequestMethod.GET)
 	public String uploadAjax() {
