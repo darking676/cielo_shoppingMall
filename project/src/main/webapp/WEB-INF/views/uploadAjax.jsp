@@ -86,7 +86,7 @@
 	});
 </script>
 </head>
-<body>
+<body> 
 	<h2>Ajax File Upload</h2>
 	<!-- 업로드할 영역 -->
 	<form id="form1" target="iframePhoto" action="/shop01/upload/uploadForm" method="post" enctype="multipart/form-data">
