@@ -26,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bit.shop01.model.entity.MemVo;
 import com.bit.shop01.util.MediaUtils;
+import com.bit.shop01.util.UploadFileDisplay;
 import com.bit.shop01.util.UploadFileUtils;
 
 @Controller
@@ -41,9 +42,9 @@ public class UploadController {
 
 	@RequestMapping(value = "/upload/uploadForm", method = RequestMethod.POST)
 	public String uploadForm(Model model, MultipartFile file) throws Exception {
-		logger.info("이름"+file.getOriginalFilename());
-		logger.info("크기"+file.getSize());
-		logger.info("타입"+file.getContentType());
+		logger.info("이름: "+file.getOriginalFilename());
+		logger.info("크기: "+file.getSize());
+		logger.info("타입: "+file.getContentType());
 		
 		String savedName = uploadFile(file.getOriginalFilename(), file.getSize());
 		
@@ -53,7 +54,7 @@ public class UploadController {
 	}
 
 	private String uploadFile(String originalFilename, long size) {
-		return null;
+		return "";
 	}
 
 	private String uploadFile(String originalFilename, byte[] fileData) throws Exception {
@@ -93,43 +94,33 @@ public class UploadController {
 		return user_imgPath;
 	}
 	
+	@ResponseBody
+	@RequestMapping("/displayFile")
 	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception {
 
-		InputStream is = null;
-		ResponseEntity<byte[]> entity = null;
+		UploadFileDisplay display = UploadFileDisplay.getInstance();
 		
-		logger.info("FILE NAME: "+fileName);
-		
-		try {
-			String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
-			MediaType mType = MediaUtils.getMediaType(formatName);
-			HttpHeaders headers = new HttpHeaders();
-			is = new FileInputStream(uploadPath+fileName);
-			if(mType != null) {
-				headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-				headers.add("Content-Disposition", "attachment; filename=\""+new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");
-			}
-			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(is), headers, HttpStatus.CREATED);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			is.close();
-		}
-		
-		return entity;
+		return display.display(fileName, uploadPath);
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/deleteFile", method=RequestMethod.POST)
 	public ResponseEntity<String> deleteFile(String fileName){
 		
 		logger.info("delete file: " + fileName);
 		
 		String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
 		MediaType mType = MediaUtils.getMediaType(formatName);
+		//이미지 파일인 경우
+		//이미지 원본 파일 삭제
 		if(mType != null) {
 			String front = fileName.substring(0, 12);
 			String end = fileName.substring(14);
 			new File(uploadPath+(front+end).replace('/', File.separatorChar)).delete();
 		}
+		//일반 파일 삭제, 썸네일 이미지 삭제
+		new File(uploadPath+fileName.replace('/', File.separatorChar)).delete();
 		return new ResponseEntity<String>("deleted", HttpStatus.OK);
 	}
+
 }

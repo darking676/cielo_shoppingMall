@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CartController {
 	Logger log = Logger.getLogger(this.getClass());
 
-	@RequestMapping(value = "/cart/", method = RequestMethod.GET)
+	@RequestMapping(value = "/cart", method = RequestMethod.GET)
 	public String cart() {
 		
 		return "/info/cart";
@@ -17,10 +17,3 @@ public class CartController {
 	}
 	
 }
-	
-	
-
-	
-	
-	
-	

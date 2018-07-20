@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style>
 	.fileDrop {
-	    width:600px;
+	    width: 300px;
 	    height: 200px;
 	    border: 1px dotted blue;
 	}
@@ -44,14 +44,17 @@
 				success: function(data){
 					var str = "";
 					if(checkImageType(data)){	//이미지 파일이면 썸네일 이미지 출력
-						str = "<div><a href='${path }/upload/displayFile?fileName='+getOriginalName(data)+"'>";
+						str = "<div>"
+						+"<a href='${path }/upload/displayFile?fileName='+getOriginalName(data)+"'>";
 						str += "<img src='${path }/upload/displayFileName?fileName="+data+"'></a>"; 
 					}else{		//파일이면 다운
-						str = "<div><a href='${path }/upload/displayFile?fileName="+data+"'>"+getOriginalName(data)+"</a>";
+						str = "<div>"
+						+"<a href='${path }/upload/displayFile?fileName="+data+"'>"+getOriginalName(data)
+						+"</a>";
 					}
 					
 					//삭제
-					str += "<span data-src="+data+">[삭제]</span></div>";
+					str += "<button data-src="+data+">X</button></div>";
 					$(".uploadedList").append(str);
 				}
 			});
@@ -59,22 +62,26 @@
 		
 		function getOriginalNAme() {
 			if(checkImageType(fileName)){
-				return;
+				//image
+				var idx = fileName.lastIndexOf("_")+1;
+				return fileName.substr(idx);
 			}
-			
+			//other
 			var idx = fileName.indexOf("_")+1;
 			return fileName.substr(idx);
 		}
 		
 		//이미지 파일 링크
 		function getImageLink(fileName) {
+			
+			//이미지가 아니면 반환
 			if(!checkImageType(fileName)){
 				return;
 			}			
 			var front = fileName.substr(0,12);	//년월일 경로 추출
 			var end = fileName.substr(14);		//년월일 경로와 s_를 제거한 원본 파일명 추출
-			console.log(front);
-			console.log(end);
+// 			console.log(front);
+// 			console.log(end);
 			
 			return front+end; //디렉토리를 포함한 원본파일명 리턴
 		}

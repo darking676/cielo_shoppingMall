@@ -28,6 +28,7 @@
 		<beans:property name="maxUploadSize" value="104857600"></beans:property> <!-- 100MB -->
 	</beans:bean>
 	
+	<!-- 서버의 파일 저장 경로 설정 -->
 	<beans:bean id="uploadPath" class="java.lang.String">
 		<beans:constructor-arg value="C:/gitK/project/src/main/webapp/resources/profileImg">
 		</beans:constructor-arg>

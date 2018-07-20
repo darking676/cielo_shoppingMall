@@ -17,14 +17,29 @@ public class UploadFileUtils {
 
 	private static final Logger logger = LoggerFactory.getLogger(UploadFileUtils.class);
 	
+	private static Integer WIDTH_SIZE=100;
+	
+	public static Integer getWIDTH_SIZE() {
+		return WIDTH_SIZE;
+	}
+	
+	public static void setWIDTH_SIZE(Integer wIDTH_SIZE) {
+		WIDTH_SIZE = wIDTH_SIZE;
+	}
+	
+	//파일의 저장경로(uploadPath), 원본 이름(originalName), 파일 데이터(byte[])
 	public static String uploadFile(String uploadPath, String originalName, byte[] fileData) throws Exception {
 		UUID uuid = UUID.randomUUID(); //UUID 발급
 		String savedName = uuid.toString()+"_"+originalName; //저장할 파일명 = UUID + 원본이름
+		
 		String savedPath = calcPath(uploadPath); //업로드할 디렉토리 생성
+		
 		File target = new File(uploadPath+savedPath, savedName); //파일 경로
 		FileCopyUtils.copy(fileData, target); //임시 디렉토리에 업로드된 파일을 디렉토리에 복사
+		
 		String formatName = originalName.substring(originalName.lastIndexOf(".")+1); //파일 확장자 검사
 		String uploadFileName = null;
+		
 		if(MediaUtils.getMediaType(formatName) != null) {		// 이미지 파일은 썸네일 사용
 			uploadFileName = makeThumbnail(uploadPath, savedPath, savedName); //썸네일 생성
 		}else {
@@ -34,13 +49,13 @@ public class UploadFileUtils {
 		return uploadFileName;
 	}
 
-	//아이콘 생성
+	//아이콘 생성(이미지가 아닐 경우 파일 경로를 url 주소로 반환)
 	private static String makeIcon(String uploadPath, String path, String fileName) {
 		String iconName = uploadPath + path + File.separator + fileName;
 		return iconName.substring(uploadPath.length()).replace(File.separatorChar, '/');
 	}
 
-	//썸네일 생성
+	//썸네일 생성(파일경로, 년월일 경로, 파일 이름)
 	private static String makeThumbnail(String uploadPath, String path, String fileName) throws Exception {
 		BufferedImage sourceImg = ImageIO.read(new File(uploadPath + path, fileName));
 		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100);
@@ -62,10 +77,11 @@ public class UploadFileUtils {
 		return datePath;
 	}
 
-	//디렉토리 생성
+	//디렉토리(날짜 폴더) 생성
 	private static void makeDir(String uploadPath, String yearPath, String ...paths) {
 		
-		if(new File(paths[paths.length-1]).exists()) {		//디렉토리가 존재하면 ...
+		//디렉토리가 존재하면 ...
+		if(new File(paths[paths.length-1]).exists()) {		
 			return;
 		}
 		
