@@ -1,4 +1,4 @@
-package com.bit.shop01.controller;
+package com.bit.shop01.util;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -18,27 +18,29 @@ public class UploadFileUtils {
 	private static final Logger logger = LoggerFactory.getLogger(UploadFileUtils.class);
 	
 	public static String uploadFile(String uploadPath, String originalName, byte[] fileData) throws Exception {
-		UUID uuid = UUID.randomUUID();
-		String savedName = uuid.toString()+"_"+originalName;
-		String savedPath = calcPath(uploadPath);
-		File target = new File(uploadPath+savedPath, savedName);
-		FileCopyUtils.copy(fileData, target);
-		String formatName = originalName.substring(originalName.lastIndexOf(".")+1);
+		UUID uuid = UUID.randomUUID(); //UUID 발급
+		String savedName = uuid.toString()+"_"+originalName; //저장할 파일명 = UUID + 원본이름
+		String savedPath = calcPath(uploadPath); //업로드할 디렉토리 생성
+		File target = new File(uploadPath+savedPath, savedName); //파일 경로
+		FileCopyUtils.copy(fileData, target); //임시 디렉토리에 업로드된 파일을 디렉토리에 복사
+		String formatName = originalName.substring(originalName.lastIndexOf(".")+1); //파일 확장자 검사
 		String uploadFileName = null;
-		if(MediaUtils.getMediaType(formatName) != null) {
-			uploadFileName = makeThumbnail(uploadPath, savedPath, savedName);
+		if(MediaUtils.getMediaType(formatName) != null) {		// 이미지 파일은 썸네일 사용
+			uploadFileName = makeThumbnail(uploadPath, savedPath, savedName); //썸네일 생성
 		}else {
-			uploadFileName = makeIcon(uploadPath, savedPath, savedName);
+			uploadFileName = makeIcon(uploadPath, savedPath, savedName); //아이콘 생성
 		}
 		
 		return uploadFileName;
 	}
 
+	//아이콘 생성
 	private static String makeIcon(String uploadPath, String path, String fileName) {
 		String iconName = uploadPath + path + File.separator + fileName;
 		return iconName.substring(uploadPath.length()).replace(File.separatorChar, '/');
 	}
 
+	//썸네일 생성
 	private static String makeThumbnail(String uploadPath, String path, String fileName) throws Exception {
 		BufferedImage sourceImg = ImageIO.read(new File(uploadPath + path, fileName));
 		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100);
@@ -49,6 +51,7 @@ public class UploadFileUtils {
 		return thumbnailName.substring(uploadPath.length()).replace(File.separatorChar, '/');
 	}
 
+	//날짜별 디렉토리 생성
 	private static String calcPath(String uploadPath) {
 		Calendar cal = Calendar.getInstance();
 		String yearPath = File.separator+cal.get(Calendar.YEAR);
@@ -59,12 +62,14 @@ public class UploadFileUtils {
 		return datePath;
 	}
 
+	//디렉토리 생성
 	private static void makeDir(String uploadPath, String yearPath, String ...paths) {
 		
-		if(new File(paths[paths.length-1]).exists()) {
+		if(new File(paths[paths.length-1]).exists()) {		//디렉토리가 존재하면 ...
 			return;
 		}
 		
+		//디렉토리가 존재 않으면 ...
 		for(String path : paths) {
 			File dirPath = new File(uploadPath + path);
 			if(! dirPath.exists()) {

@@ -24,6 +24,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.bit.shop01.model.entity.MemVo;
+import com.bit.shop01.util.MediaUtils;
+import com.bit.shop01.util.UploadFileUtils;
+
 @Controller
 public class UploadController {
 
@@ -32,10 +36,10 @@ public class UploadController {
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
-	@RequestMapping(value = "/uploadForm", method = RequestMethod.POST)
+	@RequestMapping(value = "/upload/uploadForm", method = RequestMethod.GET)
 	public void uploadForm() throws Exception {}
 
-	@RequestMapping(value = "/uploadForm", method = RequestMethod.POST)
+	@RequestMapping(value = "/upload/uploadForm", method = RequestMethod.POST)
 	public String uploadForm(Model model, MultipartFile file) throws Exception {
 		logger.info("이름"+file.getOriginalFilename());
 		logger.info("크기"+file.getSize());
@@ -45,11 +49,10 @@ public class UploadController {
 		
 		model.addAttribute("savedName",savedName);
 		
-		return "uploadResult";
+		return "uploadForm";
 	}
 
 	private String uploadFile(String originalFilename, long size) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -61,9 +64,17 @@ public class UploadController {
 		return savedName;
 	}
 	
+	/*AJAX*/
+
+	@RequestMapping(value = "/upload/uploadAjax", method = RequestMethod.GET)
+	public String uploadAjax() {
+		return "uploadAjax";
+	}
+	
+	// text/plain;charset=UTF-8 => 파일 한글처리
 	@ResponseBody
-	@RequestMapping(value="", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
-	public String uploadAjaax(MultipartFile file, Model model, HttpSession session,
+	@RequestMapping(value="/upload/uploadAjax", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
+	public String uploadAjax(MultipartFile file, Model model, HttpSession session,
 			HttpServletRequest req, String str) throws Exception {
 		logger.info("OriginalName: "+file.getOriginalFilename());
 		ResponseEntity<String> img_path = new ResponseEntity<>(
@@ -72,12 +83,12 @@ public class UploadController {
 		String user_imgPath = (String) img_path.getBody();
 		
 		logger.info(user_imgPath);
-		UserVo vo = new UserVo();
+		MemVo vo = new MemVo();
 		vo.setUser_profileImagePath(user_imgPath);
-		UserVo id = (UserVo) session.getAttribute("login");
+		MemVo id = (MemVo) session.getAttribute("login");
 		System.out.println(id.getUser_id());
 		vo.setUser_id(id.getUser_id());
-		logger.info("file name: "+user_imgPath);
+		logger.info("FILE PATH: "+user_imgPath);
 		
 		return user_imgPath;
 	}
@@ -104,6 +115,7 @@ public class UploadController {
 		} finally {
 			is.close();
 		}
+		
 		return entity;
 	}
 	
