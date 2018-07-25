@@ -37,10 +37,10 @@ public class UploadController {
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
-	@RequestMapping(value = "/upload/uploadForm", method = RequestMethod.GET)
+	@RequestMapping(value = "/uploadForm", method = RequestMethod.GET)
 	public void uploadForm() throws Exception {}
 
-	@RequestMapping(value = "/upload/uploadForm", method = RequestMethod.POST)
+	@RequestMapping(value = "/uploadForm", method = RequestMethod.POST)
 	public String uploadForm(Model model, MultipartFile file) throws Exception {
 		logger.info("이름: "+file.getOriginalFilename());
 		logger.info("크기: "+file.getSize());
@@ -67,14 +67,14 @@ public class UploadController {
 	
 	/*AJAX*/ 
 
-	@RequestMapping(value = "/upload/uploadAjax", method = RequestMethod.GET)
+	@RequestMapping(value = "/uploadAjax", method = RequestMethod.GET)
 	public String uploadAjax() {
 		return "uploadAjax";
 	}
 	
 	// text/plain;charset=UTF-8 => 파일 한글처리
 	@ResponseBody
-	@RequestMapping(value="/upload/uploadAjax", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
+	@RequestMapping(value="/uploadAjax", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	public String uploadAjax(MultipartFile file, Model model, HttpSession session,
 			HttpServletRequest req, String str) throws Exception {
 		logger.info("OriginalName: "+file.getOriginalFilename());

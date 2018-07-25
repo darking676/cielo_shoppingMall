@@ -36,7 +36,7 @@
 			
 			$.ajax({
 				type: "post",
-				url: "${path}/upload/uploadAjax",
+				url: "${path}/uploadAjax",
 				data: formData,
 				dataType: "text",
 				processData: false,
@@ -45,12 +45,11 @@
 					var str = "";
 					if(checkImageType(data)){	//이미지 파일이면 썸네일 이미지 출력
 						str = "<div>"
-						+"<a href='${path }/upload/displayFile?fileName='+getOriginalName(data)+"'>";
-						str += "<img src='${path }/upload/displayFileName?fileName="+data+"'></a>"; 
+						+"<img src='${path }/displayFile?fileName='+getOriginalName(data)+"'>";
+						str += "<img src='${path }/upload/displayFileName?fileName="+data+"'>"; 
 					}else{		//파일이면 다운
 						str = "<div>"
-						+"<a href='${path }/upload/displayFile?fileName="+data+"'>"+getOriginalName(data)
-						+"</a>";
+						+"<img src='${path }/displayFile?fileName="+data+"'>"+getOriginalName(data);
 					}
 					
 					//삭제
@@ -96,8 +95,8 @@
 <body> 
 	<h2>Ajax File Upload</h2>
 	<!-- 업로드할 영역 -->
-	<form id="form1" target="iframePhoto" action="/shop01/upload/uploadForm" method="post" enctype="multipart/form-data">
-		<input type="file" name="file" />
+	<form id="form1" target="iframePhoto" action="/shop01/uploadForm" method="post" enctype="multipart/form-data">
+		<input multiple="multiple" type="file" name="file" />
 		<input type="submit" value="up" />
 		<div class="fileDrop"></div>
 	</form><br/>
