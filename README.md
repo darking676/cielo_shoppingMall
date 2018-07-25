@@ -1,36 +1,34 @@
 <h1>CIELO DB</h1>
 
 -- 회원
-CREATE TABLE mem (<br/>
+CREATE TABLE members (
 	memId         VARCHAR2(30)  primary key,     
 	memName       VARCHAR2(30)  NOT NULL,   
 	memPassword   VARCHAR2(30)  NOT NULL,    
 	email         VARCHAR2(60)  NOT NULL,     
 	address       VARCHAR2(60)  NOT NULL,    
-	hp            VARCHAR2(30)  NOT NULL,     
-	gender        VARCHAR2(10)  NOT NULL     
+	hp            VARCHAR2(30)  NOT NULL   
+ 
 );
 
+insert into mem values('alfos77','오미래','1234','alfos77@naver.com','경기도 시흥시','01077287934');
 
-select * from mem;
+select * from members;
 
 -- 회원
-CREATE UNIQUE INDEX PK_mem
-	ON mem ( -- 회원
+CREATE UNIQUE INDEX PK_members
+	ON members ( -- 회원
 		memid DESC -- 회원 아이디
 	);
 
-
-
 -- 상품
-CREATE TABLE product (<br/>
+CREATE TABLE product (
 	productNum   INT          primary key,
 	productType  VARCHAR(30)  NOT NULL,     
 	productName  VARCHAR(30)  NOT NULL,     
 	explan       VARCHAR(300)  NOT NULL,    
 	price        INT          NOT NULL,    
-        inventory    INT          NOT NULL,
-        proImg       VARCHAR(300)	NOT NULL    
+      	inventory    INT          NOT NULL
 );
 
 -- 상품
@@ -42,7 +40,7 @@ CREATE UNIQUE INDEX PK_product
 
 
 -- 장바구니
-CREATE TABLE basket (<br/>
+CREATE TABLE basket (
 	basketNum   INT          primary key, 
 	memId       VARCHAR(30)  NOT NULL,     
 	productNum  INT          NOT NULL,     
@@ -56,10 +54,8 @@ CREATE UNIQUE INDEX PK_basket
 		basketNum DESC -- 장바구니 번호
 	);
 
-
-
 -- 결제
-CREATE TABLE payment(<br/>
+CREATE TABLE payment(
 	paymentNum          INT          primary key, 
 	memId               VARCHAR(30)  NOT NULL,     
 	productNum          INT          NOT NULL,    
@@ -77,39 +73,43 @@ CREATE UNIQUE INDEX PK_payment
 		paymentNum DESC -- 결제 번호
 	);
 
-
-
-
--- 게시판
-CREATE TABLE shop_bbs(<br/>
-	bbsNum    INTEGER        primary key, 
-	memId     VARCHAR(30)    NOT NULL,     
-	title     VARCHAR(60)    NOT NULL,    
-	contents  VARCHAR(300)   NOT NULL,     
-	bbs_date      DATE           NOT NULL, 
-        bbsImg        VARCHAR(300)   NOT NULL
+-- 게시판 종류
+CREATE TABLE shop_bbs(
+    bbscd varchar2(60),
+    bbsnm varchar2(60) NOT NULL,
+    CONSTRAINT PK_BBS PRIMARY KEY(bbscd)
 );
+ 
 
-
-
-
--- 게시판
-CREATE UNIQUE INDEX PK_shop_bbs
-	ON shop_bbs ( -- 게시판
-		bbsNum DESC -- 게시판 글번호	
+-- 게시글
+CREATE TABLE bbsedit (
+    bbseditno NUMBER,
+    bbscd varchar2(20),
+    title varchar2(100) NOT NULL,
+    contents varchar2(600),
+    memId varchar2(60),
+    hit NUMBER,
+    bbs_date DATE,
+    CONSTRAINT PK_ARTICLE PRIMARY KEY(bbseditno),
+    CONSTRAINT FK_ARTICLE FOREIGN KEY(bbscd) REFERENCES shop_bbs(bbscd)
 );
+ 
+-- 게시글 번호 생성기
+CREATE SEQUENCE SEQ_bbsedit
+INCREMENT BY 1
+START WITH 1;
+ 
+--게시판 데이터 입력
+INSERT INTO shop_bbs VALUES ('review','리뷰게시판');
+INSERT INTO shop_bbs VALUES ('qna','QnA게시판');
+INSERT INTO shop_bbs VALUES ('notice','문의게시판');
 
--- 게시판 시퀀스
-
-create sequence shop_bbs_seq;
-
-(글번호 자동 증가 .nextval)
-insert into shop_bbs values(shop_bbs_seq.nextval,'alfos77','테스트용1','내용 나오는지 테스트~~',sysdate);
-insert into shop_bbs values(shop_bbs_seq.nextval,'alfos79','테스트용2','내용 나오는지 테스트222~~',sysdate);
-select * from shop_bbs;
+commit;
 
 
-comments_seq.nextval
+insert into bbsedit values(seq_bbsedit.nextval, 'notice', 'test1', 'it''s test1', 'ttt', 0, sysdate);
+insert into bbsedit values(seq_bbsedit.nextval, 'notice', 'test2', 'it''s \*test2', 'ggg', 0, sysdate);
+insert into bbsedit values(seq_bbsedit.nextval, 'notice', 'test2', 'it''s \$test3', 'zzzz', 0, sysdate);
 
 -- 댓글
 CREATE TABLE comments (
@@ -130,17 +130,3 @@ CREATE UNIQUE INDEX PK_comment
 -- 댓글 시퀀스
 
 create sequence comments_seq; 
-
-
-
--- 후기게시판(상품상세페이지 밑)
-CREATE TABLE shop_bbs_review(
-	reviewNum    INTEGER        primary key, 
-	memId     VARCHAR(30)    NOT NULL,     
-	title     VARCHAR(60)    NOT NULL,    
-	contents  VARCHAR(300)   NOT NULL,     
-	review_date  DATE           NOT NULL
-);
-
-
-create sequence shop_bbs_review_seq; 
