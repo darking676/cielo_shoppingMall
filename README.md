@@ -22,27 +22,42 @@ CREATE UNIQUE INDEX PK_members
 	);
 
 -- 상품
-CREATE TABLE product (
-	productNum   INT          primary key,
-	productType  VARCHAR(30)  NOT NULL,     
-	productName  VARCHAR(30)  NOT NULL,     
-	explan       VARCHAR(300)  NOT NULL,    
-	price        INT          NOT NULL,    
-      	inventory    INT          NOT NULL
+
+create table products (
+    procd varchar2(60),
+    pronm varchar2(60) NOT NULL,
+    CONSTRAINT PK_PRO PRIMARY KEY(procd)
 );
 
--- 상품
-CREATE UNIQUE INDEX PK_product
-	ON product ( -- 상품
-		productNum DESC -- 상품번호
-	);
+
+INSERT INTO products VALUES ('outer','겉옷');
+INSERT INTO products VALUES ('top','상의');
+INSERT INTO products VALUES ('bottom','하의');
+INSERT INTO products VALUES ('dress','원피스');
+INSERT INTO products VALUES ('shoesNacc','악세서리');
+INSERT INTO products VALUES ('sale','세일품목');
+
+commit;
+
+
+-- 상품 내용
+CREATE TABLE product(
+	productNum   NUMBER,    
+	productName  VARCHAR2(60),
+        procd varchar2(60),     
+	explan       VARCHAR2(500),    
+	price        NUMBER DEFAULT 0,
+        product_url  varchar2(500),
+        CONSTRAINT PK_PRO2 PRIMARY KEY(productNum),
+        CONSTRAINT FK_PRO2 FOREIGN KEY(procd) REFERENCES products(procd)  
+);
 
 
 
 -- 장바구니
 CREATE TABLE basket (
 	basketNum   INT          primary key, 
-	memId       VARCHAR(30)  NOT NULL,     
+	memId       VARCHAR2(30)  NOT NULL,     
 	productNum  INT          NOT NULL,     
 	numbers     INT          NOT NULL    
 );
@@ -54,16 +69,17 @@ CREATE UNIQUE INDEX PK_basket
 		basketNum DESC -- 장바구니 번호
 	);
 
+
 -- 결제
 CREATE TABLE payment(
 	paymentNum          INT          primary key, 
-	memId               VARCHAR(30)  NOT NULL,     
+	memId               VARCHAR2(30)  NOT NULL,     
 	productNum          INT          NOT NULL,    
 	numbers             INT          NOT NULL,     
-	address             VARCHAR(60)  NOT NULL,     
-	hp                  VARCHAR(30)  NOT NULL,     
-	creditcardNum       VARCHAR(30)  NOT NULL,     
-	creditcardPassword  VARCHAR(10)  NOT NULL    
+	address             VARCHAR2(60)  NOT NULL,     
+	hp                  VARCHAR2(30)  NOT NULL,     
+	creditcardNum       VARCHAR2(30)  NOT NULL,     
+	creditcardPassword  VARCHAR2(10)  NOT NULL    
 );
 
 
@@ -72,6 +88,7 @@ CREATE UNIQUE INDEX PK_payment
 	ON payment ( -- 결제
 		paymentNum DESC -- 결제 번호
 	);
+
 
 -- 게시판 종류
 CREATE TABLE shop_bbs(
@@ -98,6 +115,7 @@ CREATE TABLE bbsedit (
 CREATE SEQUENCE SEQ_bbsedit
 INCREMENT BY 1
 START WITH 1;
+
  
 --게시판 데이터 입력
 INSERT INTO shop_bbs VALUES ('review','리뷰게시판');
@@ -107,26 +125,56 @@ INSERT INTO shop_bbs VALUES ('notice','문의게시판');
 commit;
 
 
-insert into bbsedit values(seq_bbsedit.nextval, 'notice', 'test1', 'it''s test1', 'ttt', 0, sysdate);
-insert into bbsedit values(seq_bbsedit.nextval, 'notice', 'test2', 'it''s \*test2', 'ggg', 0, sysdate);
-insert into bbsedit values(seq_bbsedit.nextval, 'notice', 'test2', 'it''s \$test3', 'zzzz', 0, sysdate);
+insert into bbsedit values(seq_bbsedit.nextval, 'notice', 'test1', 'it', 'ttt', 0, sysdate);
+insert into bbsedit values(seq_bbsedit.nextval, 'notice', 'test2', 'it', 'ggg', 0, sysdate);
+insert into bbsedit values(seq_bbsedit.nextval, 'notice', 'test3', 'it', 'zzzz', 0, sysdate);
 
--- 댓글
-CREATE TABLE comments (
-	commentsNum        INT            primary key, 
-	bbsNum             INT            NOT NULL,      
-	memId              VARCHAR(30)    NOT NULL,    
-	commentsDate       DATE           NOT NULL,   
-	commentsContents   VARCHAR(300)   NOT NULL     
+
+-- 첨부파일 
+create table attachfile (
+ attachfileno number,
+ filename varchar2(50) NOT NULL,
+ filetype varchar2(30),
+ filesize number,
+ bbseditno number,
+ constraint PK_ATTACHFILE PRIMARY KEY(attachfileno)
 );
 
+-- 첨부파일 번호 생성기
+create sequence SEQ_ATTACHFILE
+increment by 1
+start with 1;
+
 
 -- 댓글
-CREATE UNIQUE INDEX PK_comment
-	ON comments ( -- 댓글
-		commentsNum  DESC -- 댓글 번호	
+create table comments (
+	commentno          number,
+	bbseditno          number,     
+	memId              varchar2(60),  
+        memo               varchar2(4000),  
+	bbs_date           date,
+        constraint PK_COMMENTS PRIMARY KEY(commentno)
 );
 
--- 댓글 시퀀스
+-- 댓글 번호 생성기
 
-create sequence comments_seq; 
+create sequence SEQ_COMMENTS
+increment by 1
+start with 1;
+
+-----------------------------------------------------------------------
+
+상품 타입
+outer = T01
+bottom  = T02
+dress  = T03
+shoes&acc  = T04
+sale   = T05
+
+
+상품 번호
+outer = 1~100
+bottom  = 101~200
+dress  = 201~300
+shoes&acc  = 301~400
+sale   = 401~500
