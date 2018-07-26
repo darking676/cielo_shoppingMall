@@ -23,33 +23,33 @@ CREATE UNIQUE INDEX PK_members
 
 -- 상품
 
-create table products (
-    procd varchar2(60),
-    pronm varchar2(60) NOT NULL,
-    CONSTRAINT PK_PRO PRIMARY KEY(procd)
+create table products (<br/>
+    procd varchar2(60),<br/>
+    pronm varchar2(60) NOT NULL,<br/>
+    CONSTRAINT PK_PRO PRIMARY KEY(procd)<br/>
 );
 
 
-INSERT INTO products VALUES ('outer','겉옷');
-INSERT INTO products VALUES ('top','상의');
-INSERT INTO products VALUES ('bottom','하의');
-INSERT INTO products VALUES ('dress','원피스');
-INSERT INTO products VALUES ('shoesNacc','악세서리');
+INSERT INTO products VALUES ('outer','겉옷');<br/>
+INSERT INTO products VALUES ('top','상의');<br/>
+INSERT INTO products VALUES ('bottom','하의');<br/>
+INSERT INTO products VALUES ('dress','원피스');<br/>
+INSERT INTO products VALUES ('shoesNacc','악세서리');<br/>
 INSERT INTO products VALUES ('sale','세일품목');
 
 commit;
 
 
 -- 상품 내용
-CREATE TABLE product(
-	productNum   NUMBER,    
-	productName  VARCHAR2(60),
-        procd varchar2(60),     
-	explan       VARCHAR2(500),    
-	price        NUMBER DEFAULT 0,
-        product_url  varchar2(500),
-        CONSTRAINT PK_PRO2 PRIMARY KEY(productNum),
-        CONSTRAINT FK_PRO2 FOREIGN KEY(procd) REFERENCES products(procd)  
+CREATE TABLE product(<br/>
+	productNum   NUMBER,   <br/> 
+	productName  VARCHAR2(60),<br/>
+        procd varchar2(60),     <br/>
+	explan       VARCHAR2(500),    <br/>
+	price        NUMBER DEFAULT 0,<br/>
+        product_url  varchar2(500),<br/>
+        CONSTRAINT PK_PRO2 PRIMARY KEY(productNum),<br/>
+        CONSTRAINT FK_PRO2 FOREIGN KEY(procd) REFERENCES products(procd)  <br/>
 );
 
 
@@ -164,17 +164,17 @@ start with 1;
 
 -----------------------------------------------------------------------
 
-상품 타입
-outer = T01
-bottom  = T02
-dress  = T03
-shoes&acc  = T04
+상품 타입<br/>
+outer = T01<br/>
+bottom  = T02<br/>
+dress  = T03<br/>
+shoes&acc  = T04<br/>
 sale   = T05
 
 
-상품 번호
-outer = 1~100
-bottom  = 101~200
-dress  = 201~300
-shoes&acc  = 301~400
+상품 번호<br/>
+outer = 1~100<br/>
+bottom  = 101~200<br/>
+dress  = 201~300<br/>
+shoes&acc  = 301~400<br/>
 sale   = 401~500
