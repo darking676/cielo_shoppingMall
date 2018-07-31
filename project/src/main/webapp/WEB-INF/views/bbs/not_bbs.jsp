@@ -77,8 +77,26 @@ body {
 			</table>
 		</div>
 	</div>
+	
+<!-- 		<div id="list-menu" style="text-align: right;"> -->
+<!-- 		<input type="button" value="글쓰기" onclick="goWrite()" -->
+<!-- 			class="btn btn-info btn-sm active" /> -->
+<!-- 	</div> -->
+	
+	<br />
+	
+	<div id="search" style="text-align: center; margin-left: 1317px;">
+		<form id="searchForm" action="/shop01/not_bbs/" method="get"
+			style="margin: 0; padding: 0;">
+			<p style="margin: 0; padding: 0;">
+				<input type="hidden" name="bbscd" value="${bbscd }" /> <input
+					type="text" name="searchWord" size="20" maxlength="30" /> <input
+					type="submit" value="검색">
+			</p>
+		</form>
+	</div>
 
-	<nav aria-label="Page navigation" style="padding-left: 800px;">
+	<nav aria-label="Page navigation" style="padding-left: 600px;">
 		<ul class="pagination">
 			<li><a href="/shop01/not_bbs/?bbscd=notice&curPage=1"
 				aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
@@ -93,54 +111,11 @@ body {
 			<li><a href="/shop01/not_bbs/?bbscd=notice&curPage=8">8</a></li>
 			<li><a href="/shop01/not_bbs/?bbscd=notice&curPage=9">9</a></li>
 			<li><a href="/shop01/not_bbs/?bbscd=notice&curPage=10">10</a></li>
-			<!-- 			<li><a href="/shop01/not_bbs/?bbscd=notice&curPage=11" 
-<!-- 				aria-label="Next"> <span aria-hidden="true">&raquo;</span> 
-<!-- 			</a></li> -->
+						<li><a href="/shop01/not_bbs/?bbscd=notice&curPage=11" 
+				aria-label="Next"> <span aria-hidden="true">&raquo;</span> 
+			</a></li> 
 		</ul>
 	</nav>
-
-	<!--paging -->
-
-	<!--                     <ul class="pagination"> -->
-	<%-- 					<c:if test="${prevLink > 0 }"> --%>
-	<%-- 						<li><a href="javascript:goList('${prevPage }')">[이전]</a></li> --%>
-	<%-- 					</c:if> --%>
-	<!-- 					</ul> -->
-
-	<%-- 					<c:forEach var="i" items="${pageLinks }" varStatus="stat"> --%>
-	<%-- 						<c:choose> --%>
-	<%-- 							<c:when test="${curPage == i}"> --%>
-	<%-- 								<span class="bbs-strong">${i }</span> --%>
-	<%-- 							</c:when> --%>
-	<%-- 							<c:otherwise> --%>
-	<%-- 								<a href="javascript:goList('${i }')">${i }</a> --%>
-	<%-- 							</c:otherwise> --%>
-	<%-- 						</c:choose> --%>
-	<%-- 					</c:forEach> --%>
-
-	<%-- 					<c:if test="${nextLink > 0 }"> --%>
-	<%-- 						<a href="javascript:goList('${nextPage }')">[다음]</a> --%>
-	<%-- 					</c:if> --%>
-	<!-- 				</div> -->
-	<!--  			</div>  -->
-	<!--  		</div>  -->
-	<!--  		</nav> -->
-
-	<div id="list-menu" style="text-align: right;">
-		<input type="button" value="글쓰기" onclick="goWrite()"
-			class="btn btn-info btn-sm active" />
-	</div>
-
-	<div id="search" style="text-align: center;">
-		<form id="searchForm" action="/shop01/not_bbs/" method="get"
-			style="margin: 0; padding: 0;">
-			<p style="margin: 0; padding: 0;">
-				<input type="hidden" name="bbscd" value="${bbscd }" /> <input
-					type="text" name="searchWord" size="20" maxlength="30" /> <input
-					type="submit" value="검색">
-			</p>
-		</form>
-	</div>
 
 	<br />
 	<br />

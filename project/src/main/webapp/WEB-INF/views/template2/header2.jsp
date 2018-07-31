@@ -10,8 +10,8 @@
 			<ul class="nav navbar-nav navbar-right" style="font-size: 18;">
 				<br />
 				<li><a>${check.memId}</a></li>
-				<li><a href="/shop01/">Logout</a></li>
-				<li><a href="/shop01/mypage/">MyPage</a></li>
+				<li><a href="/shop01/logout/">Logout</a></li>
+				<li><a href="/shop01/changePasswd/">MyPage</a></li>
 				<li><a href="/shop01/cart/">Cart</a></li>
 			</ul>
 		</div>
@@ -19,7 +19,6 @@
 </nav>
 
 <div id="page-wrapper">
-	<!-- ì¬ì´ëë°-->
 	<div id="sidebar-wrapper">
 		<ul class="sidebar-nav" id="container">
 			<li style="text-decoration: underline;">Products</li>
@@ -30,9 +29,9 @@
 			<li><a href="/shop01/shoeacc2/">Shoes&Acc</a></li>
 			<li><a href="/shop01/sale2/" class="position2">Sale</a></li>
 
-			<li><a href="not_bbs">Notice</a></li>
-			<li><a href="qna">Q&A</a></li>
-			<li><a href="rev_bbs">Review</a></li>
+			<li><a href="/shop01/not_bbs2/">Notice</a></li>
+			<li><a href="/shop01/qna2/">Q&A</a></li>
+			<li><a href="/shop01/rev_bbs2/">Review</a></li>
 		</ul>
 	</div>
 </div>

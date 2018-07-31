@@ -14,7 +14,7 @@ body {
 <style type="text/css">
 .location01 {
 	padding-top: 0px;
-	padding-left: 650px;
+	padding-left: 530px;
 }
 
 hr.line {
@@ -81,7 +81,7 @@ hr.line {
 						<table>
 							<tr>
 								<br />
-								<th>작성자 ${thisBbsVo.memId }</th>
+								<th>작성자 : 관리자</th>
 								<th style="width: 60px; text-align: right;">DATE&nbsp;&nbsp;</th>
 								<th style="width: 90px; color: #555;">${thisBbsVo.bbs_date }</th>
 								<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조회수 ${thisBbsVo.hit }</th>
@@ -109,10 +109,10 @@ hr.line {
 						<div id="view-menu">
 						<br/>
 							<div>
-								<input type="button" value="수정" onclick="goModify();"
-									style="margin-left: 250px" class="btn btn-info btn-sm active" />
-								<input type="button" value="삭제" onclick="goDelete()"
-									style="margin-left: 0px" class="btn btn-info btn-sm active" />
+<!-- 								<input type="button" value="수정" onclick="goModify();" -->
+<!-- 									style="margin-left: 250px" class="btn btn-info btn-sm active" /> -->
+<!-- 								<input type="button" value="삭제" onclick="goDelete()" -->
+<!-- 									style="margin-left: 0px" class="btn btn-info btn-sm active" /> -->
 
 								<input type="button" value="목록"
 									onclick="goList('${param.curPage }')" style="margin-left: 0px"

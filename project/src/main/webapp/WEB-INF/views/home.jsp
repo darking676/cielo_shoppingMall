@@ -151,7 +151,7 @@ body {
 			<li><a href="/shop01/sale/" class="position2">Sale</a></li>
 
 			<li><a href="/shop01/not_bbs/">Notice</a></li>
-			<li><a href="/shop01/bbs/qna/">Q&A</a></li>
+			<li><a href="/shop01/qna/">Q&A</a></li>
 			<li><a href="/shop01/rev_bbs/">Review</a></li>
 		</ul>
 	</div>
@@ -168,7 +168,7 @@ body {
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
 		<div class="item active">
-			<img id="image" src="resources/imgs/bot08-12.jpg" alt="..."
+			<img id="image" src="resources/imgs/dre58-1.jpg" alt="..."
 				width="100%" />
 		</div>
 		<div class="item">
@@ -176,7 +176,7 @@ body {
 				width="100%" />
 		</div>
 		<div class="item">
-			<img id="image" src="resources/imgs/dre58-1.jpg" alt="..."
+			<img id="image" src="resources/imgs/dre49-17.jpg" alt="..."
 				width="100%" />
 		</div>
 	</div>
@@ -197,71 +197,59 @@ body {
 <div class="container">
 	<div class="row">
 		<div class="col-md-3">
-			<a><img src="resources/imgs/img01.jpg" alt="..."
+			<a><img src="resources/imgs/dre06-3.jpg" alt="..."
+				class="img-responsive img-rounded"></a> <br /> <a href="http://localhost:8088/shop01/rev_bbs_detail/?bbseditno=84&bbscd=review&curPage=1&searchWord=">하늘하늘원피스(5
+				color)</a>
+			<h5>35,000원</h5>
+			<br /> <a><img src="resources/imgs/dre05-13.jpg" alt="..."
 				class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
 				color)</a>
-			<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
 			<h5>35,000원</h5>
 			<br /> <a><img src="resources/imgs/img01.jpg" alt="..."
 				class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
 				color)</a>
-			<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
 			<h5>35,000원</h5>
 			<br /> <a><img src="resources/imgs/img01.jpg" alt="..."
 				class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
 				color)</a>
-			<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
-			<h5>35,000원</h5>
-			<br /> <a><img src="resources/imgs/img01.jpg" alt="..."
-				class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
-				color)</a>
-			<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
 			<h5>35,000원</h5>
 			<br />
 		</div>
 		<div class="col-md-3">
-			<a><img src="resources/imgs/img02.jpg" alt="..."
+			<a><img src="resources/imgs/dre44-21.jpg" alt="..."
 				class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
 				color)</a>
-			<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
 			<h5>25,000원</h5>
-			<br /> <a><img src="resources/imgs/img02.jpg" alt="..."
+			<br /> <a><img src="resources/imgs/dre06-3.jpg" alt="..."
 				class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
 				color)</a>
-			<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
 			<h5>35,000원</h5>
 			<br /> <a><img src="resources/imgs/img02.jpg" alt="..."
 				class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
 				color)</a>
-			<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
 			<h5>35,000원</h5>
 			<br /> <a><img src="resources/imgs/img02.jpg" alt="..."
 				class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
 				color)</a>
-			<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
 			<h5>35,000원</h5>
 			<br />
 		</div>
 		<div class="col-md-3">
-			<a><img src="resources/imgs/img01.jpg" alt="..."
+			<a><img src="resources/imgs/dre05-13.jpg" alt="..."
 				class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
 				color)</a>
-			<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
 			<h5>42,000원</h5>
-			<br /> <a><img src="resources/imgs/img02.jpg" alt="..."
+			<br /> <a><img src="resources/imgs/dre44-21.jpg" alt="..."
 				class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
 				color)</a>
-			<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
 			<h5>35,000원</h5>
 			<br /> <a><img src="resources/imgs/img04.jpg" alt="..."
 				class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
 				color)</a>
-			<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
 			<h5>35,000원</h5>
 			<br /> <a><img src="resources/imgs/img02.jpg" alt="..."
 				class="img-responsive img-rounded"></a> <br /> <a href="#">하늘하늘원피스(5
 				color)</a>
-			<h6>누구에게나 잘 어울리는 하늘색 원피스</h6>
 			<h5>35,000원</h5>
 			<br />
 		</div>
@@ -281,7 +269,88 @@ body {
 <br />
 <br />
 <br />
-<p align="center">footer test</p>
-</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<!-- <p align="center">footer test</p> -->
+<hr style="width: 1510px;
+  color: black;
+  border: thin solid black;
+  border-bottom:2px;
+  text-align:left; 
+  margin-left: 0px;">
+<div style="padding-top: 0px; padding-left: 300px;">
+    <div class="footer01">
+      <div class="col-md-4">
+          <h4>CS CENTER</h4>
+          <h5>1320-1004<h5>
+          <br/>
+          <h7>Weekday. am10:00 - pm17:00<br>Closed. Sat. Sun. Holiday</h7>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <h7>HOME&nbsp;</h7>
+          <h7>COMPANY&nbsp;</h7>
+          <h7>AGREEMENT&nbsp;</h7>
+          <h7>GUIDE</h7>
+          <br/>
+          <h7 style="word-spacing:63px;"><b><ins>개인정보취급방침&nbsp;</b></ins></h7>
+          <h7>사업자정보확인</h7><br/>        
+          <h7 style="word-spacing:110px;">에스크로&nbsp;</h7>
+          <h7>제휴/단체복문의</h7>
+          <br/>
+          <br/>
+          <h7 style="word-spacing:7px;">COMPANY&nbsp;</h7> 
+          <h7 style="word-spacing:4px;">MAIL ORDER LICENSE&nbsp;</h7> 
+          <h7>OWNER</h7>
+          
+          <br/>
+          
+          <h7 style="word-spacing:40px;">씨엘로&nbsp;</h7>
+          <h7 style="word-spacing:19px;">2018-서울뭐하구-132&nbsp;</h7>
+          <h7>JAVA KIM</h7>
+          
+        </div>
+        
+        <div class="col-md-1">     
+        </div>
+        <div class="col-md-2">
+          <h4>BANKING</h4>
+          <h6>국민 142423-52-131424<br>우리 2402-424-224244<br>신한 142-535-242424<br></h6>
+          <h7><br>예금주:㈜씨엘로</h7>
+          <br/><br/><br/><br/><br/><br/>
+          <h7>CHIEF MANAGER</h7>
+          
+          <br/>
+          
+          <h7>IN-SUNG JO</h7>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4">
+           <h4>ADDRESS</h4>
+           <h6>서울시 뭐하구 릴리동2가 221-4241번지 AD빌딩 5,6층<br></h6>
+           <br><h7>(교환/반품 주소)<br></h7>
+           <h6>서울 리얼로40 서강대학교우편취급국 2층 씨엘로 앞<br></h6>
+           <h7><br>(방문수령 및 타택배 반품시)<br></h7><h6>서울시 뭐하구 릴리동2가 221-4241번지 AD빌딩 5층</h6>
+         <br/>
+         <h7>COMPANY E-MAIL</h7>
+         
+         <br/>
+         
+         <h7>CIELO@NAVER.COM</h7>
+         <br />
+         <br />
+         <br />
+         <br />
+       </div>
+     </div>
+   </div>
 </body>
 </html>

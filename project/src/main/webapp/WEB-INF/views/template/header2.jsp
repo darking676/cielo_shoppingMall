@@ -12,7 +12,7 @@
 				<li><a href="/shop01/login/">Login</a></li>
 				<li><a href="/shop01/join/">Join</a></li>
 				<li><a href="/shop01/login/">MyPage</a></li>
-				<li><a href="/shop01/login/">Cart</a></li>
+				<li><a href="/shop01/cart/">Cart</a></li>
 			</ul>
 		</div>
 	</div>

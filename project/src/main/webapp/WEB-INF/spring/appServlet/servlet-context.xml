@@ -37,7 +37,9 @@
 	"com.bit.shop01,
 	 com.bit.shop01.controller,
 	 com.bit.shop01.bbs,
-	 com.bit.shop01.controller.bbs"/>
+	 com.bit.shop01.controller.bbs,
+	 com.bit.shop01.products,
+	 com.bit.shop01.controller.products"/>
 	 
 	<mybatis-spring:scan base-package="com.bit.mybatis" />
 

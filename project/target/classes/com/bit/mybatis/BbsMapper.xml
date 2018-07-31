@@ -12,7 +12,7 @@
    SELECT rownum r, a.* 
     FROM (
      SELECT 
-      a.bbseditno, title, a.bbs_date, hit, 
+      a.bbseditno, title, a.bbs_date, hit,
       count(distinct(f.attachfileno)) attachfilenum,
       count(distinct(c.commentno)) commentno
      FROM 
@@ -25,7 +25,7 @@
      AND (title LIKE '%${searchWord}%' OR
      contents LIKE '%${searchWord}%')
      </if>
-     GROUP BY a.bbseditno, title, a.bbs_date, hit 
+     GROUP BY a.bbseditno, title, a.bbs_date, hit
      ORDER BY bbseditno DESC
     ) a
   )
@@ -114,7 +114,6 @@
 	<resultMap type="BbsVo" id="BbsVoCont">
 		<result property="contents" column="contents"
 			jdbcType="VARCHAR" javaType="java.lang.String" />
-		<!-- jdbcType="CLOB" -->
 		<!-- javaType="java.lang.String" -->
 	</resultMap>
 
@@ -206,6 +205,7 @@
 
 	<select id="getCommentList" parameterType="int"
 		resultType="comment">
+		
 		SELECT commentno, bbseditno, memId, memo, bbs_date
 		FROM comments
 		WHERE bbseditno = #{bbseditno}

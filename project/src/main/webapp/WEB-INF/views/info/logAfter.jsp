@@ -130,8 +130,8 @@ body {
 			<br />
 			<li><a>${check.memId}</a></li>
 			<li><a href="/shop01/">Logout</a></li>
-			<li><a href="/shop01/changePasswd/">MyPage</a></li>
-			<li><a href="/shop01/cart/">Cart</a></li>
+			<li><a href="/shop01/mypage/">MyPage</a></li>
+			<li><a href="/shop01/cart/">cart</a></li>
 		</ul>
 	</div>
 </nav>
@@ -143,16 +143,16 @@ body {
 	<div id="sidebar-wrapper">
 		<ul class="sidebar-nav">
 			<li style="text-decoration: underline;">Products</li>
-			<li><a href="/shop01/outer/">Outer</a></li>
-			<li><a href="/shop01/top/">Top</a></li>
-			<li><a href="/shop01/bottom/">Bottom</a></li>
-			<li><a href="/shop01/dress/">Dress</a></li>
-			<li><a href="/shop01/shoeacc/">Shoes&Acc</a></li>
-			<li><a href="/shop01/sale/" class="position2">Sale</a></li>
+			<li><a href="/shop01/outer2/">Outer</a></li>
+			<li><a href="/shop01/top2/">Top</a></li>
+			<li><a href="/shop01/bottom2/">Bottom</a></li>
+			<li><a href="/shop01/dress2/">Dress</a></li>
+			<li><a href="/shop01/shoeacc2/">Shoes&Acc</a></li>
+			<li><a href="/shop01/sale2/" class="position2">Sale</a></li>
 
-			<li><a href="#">Notice</a></li>
-			<li><a href="#">Q&A</a></li>
-			<li><a href="#">Review</a></li>
+			<li><a href="/shop01/not_bbs2/">Notice</a></li>
+			<li><a href="/shop01/qna2/">Q&A</a></li>
+			<li><a href="/shop01/rev_bbs2/">Review</a></li>
 		</ul>
 	</div>
 </div>
@@ -168,7 +168,7 @@ body {
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
 		<div class="item active">
-			<img id="image" src="../resources/imgs/bot08-12.jpg" alt="..."
+			<img id="image" src="../resources/imgs/dre58-1.jpg" alt="..."
 				width="100%" />
 		</div>
 		<div class="item">
@@ -176,7 +176,7 @@ body {
 				width="100%" />
 		</div>
 		<div class="item">
-			<img id="image" src="../resources/imgs/dre58-1.jpg" alt="..."
+			<img id="image" src="../resources/imgs/dre49-17.jpg" alt="..."
 				width="100%" />
 		</div>
 	</div>
@@ -281,7 +281,83 @@ body {
 <br />
 <br />
 <br />
-<p align="center">footer test</p>
-</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<!-- <p align="center">footer test</p> -->
+<hr class="line">
+<div style="padding-top: 0px; padding-left: 300px;">
+    <div class="footer01">
+      <div class="col-md-4">
+          <h4>CS CENTER</h4>
+          <h5>1320-1004<h5>
+          <br/>
+          <h7>Weekday. am10:00 - pm17:00<br>Closed. Sat. Sun. Holiday</h7>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <h7>HOME&nbsp;</h7>
+          <h7>COMPANY&nbsp;</h7>
+          <h7>AGREEMENT&nbsp;</h7>
+          <h7>GUIDE</h7>
+          <br/>
+          <h7 style="word-spacing:63px;"><b><ins>개인정보취급방침&nbsp;</b></ins></h7>
+          <h7>사업자정보확인</h7><br/>        
+          <h7 style="word-spacing:110px;">에스크로&nbsp;</h7>
+          <h7>제휴/단체복문의</h7>
+          <br/>
+          <br/>
+          <h7 style="word-spacing:7px;">COMPANY&nbsp;</h7> 
+          <h7 style="word-spacing:4px;">MAIL ORDER LICENSE&nbsp;</h7> 
+          <h7>OWNER</h7>
+          
+          <br/>
+          
+          <h7 style="word-spacing:40px;">씨엘로&nbsp;</h7>
+          <h7 style="word-spacing:19px;">2018-서울뭐하구-132&nbsp;</h7>
+          <h7>JAVA KIM</h7>
+          
+        </div>
+        
+        <div class="col-md-1">     
+        </div>
+        <div class="col-md-2">
+          <h4>BANKING</h4>
+          <h6>국민 142423-52-131424<br>우리 2402-424-224244<br>신한 142-535-242424<br></h6>
+          <h7><br>예금주:㈜씨엘로</h7>
+          <br/><br/><br/><br/><br/><br/>
+          <h7>CHIEF MANAGER</h7>
+          
+          <br/>
+          
+          <h7>IN-SUNG JO</h7>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4">
+           <h4>ADDRESS</h4>
+           <h6>서울시 뭐하구 릴리동2가 221-4241번지 AD빌딩 5,6층<br></h6>
+           <br><h7>(교환/반품 주소)<br></h7>
+           <h6>서울 리얼로40 서강대학교우편취급국 2층 씨엘로 앞<br></h6>
+           <h7><br>(방문수령 및 타택배 반품시)<br></h7><h6>서울시 뭐하구 릴리동2가 221-4241번지 AD빌딩 5층</h6>
+         <br/>
+         <h7>COMPANY E-MAIL</h7>
+         
+         <br/>
+         
+         <h7>CIELO@NAVER.COM</h7>
+         <br />
+         <br />
+         <br />
+         <br />
+      </div>
+     </div>
+   </div>
 </body>
 </html>

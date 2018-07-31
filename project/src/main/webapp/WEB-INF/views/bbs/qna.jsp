@@ -76,57 +76,29 @@ body {
 
 	<nav aria-label="Page navigation" style="padding-left: 800px;">
 		<ul class="pagination">
-			<li><a href="/shop01/qna/?bbscd=qna&curPage=1"
-				aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-			</a></li>
-			<li><a href="/shop01/qna/?bbscd=qna&curPage=1">1</a></li>
-			<li><a href="/shop01/qna/?bbscd=qna&curPage=2">2</a></li>
-			<li><a href="/shop01/qna/?bbscd=qna&curPage=3">3</a></li>
-			<li><a href="/shop01/qna/?bbscd=qna&curPage=4">4</a></li>
-			<li><a href="/shop01/qna/?bbscd=qna&curPage=5">5</a></li>
-			<li><a href="/shop01/qna/?bbscd=qna&curPage=6">6</a></li>
-			<li><a href="/shop01/qna/?bbscd=qna&curPage=7">7</a></li>
-			<li><a href="/shop01/qna/?bbscd=qna&curPage=8">8</a></li>
-			<li><a href="/shop01/qna/?bbscd=qna&curPage=9">9</a></li>
-			<li><a href="/shop01/qna/?bbscd=qna&curPage=10">10</a></li>
-<!-- 			<li><a href="/shop01/not_bbs/?bbscd=notice&curPage=11" 
-<!-- 				aria-label="Next"> <span aria-hidden="true">&raquo;</span> 
+<!-- 			<li><a href="/shop01/qna/?bbscd=qna&curPage=1" -->
+<!-- 				aria-label="Previous"> <span aria-hidden="true">&laquo;</span> -->
 <!-- 			</a></li> -->
+			<li><a href="/shop01/qna/?bbscd=qna&curPage=1">1</a></li>
+<!-- 			<li><a href="/shop01/qna/?bbscd=qna&curpage=2">2</a></li> -->
+<!-- 			<li><a href="/shop01/qna/?bbscd=qna&curpage=3">3</a></li> -->
+<!-- 			<li><a href="/shop01/qna/?bbscd=qna&curpage=4">4</a></li> -->
+<!-- 			<li><a href="/shop01/qna/?bbscd=qna&curpage=5">5</a></li> -->
+<!-- 			<li><a href="/shop01/qna/?bbscd=qna&curpage=6">6</a></li> -->
+<!-- 			<li><a href="/shop01/qna/?bbscd=qna&curpage=7">7</a></li> -->
+<!-- 			<li><a href="/shop01/qna/?bbscd=qna&curpage=8">8</a></li> -->
+<!-- 			<li><a href="/shop01/qna/?bbscd=qna&curpage=9">9</a></li> -->
+<!-- 			<li><a href="/shop01/qna/?bbscd=qna&curpage=10">10</a></li> -->
+<!--  			<li><a href="/shop01/not_bbs/?bbscd=notice&curPage=11"  -->
+<!--  				aria-label="Next"> <span aria-hidden="true">&raquo;</span>  -->
+<!--  			</a></li>  -->
 		</ul>
 	</nav>
 
-                <!--paging -->
-
-<!--                     <ul class="pagination"> -->
-<%-- 					<c:if test="${prevLink > 0 }"> --%>
-<%-- 						<li><a href="javascript:goList('${prevPage }')">[이전]</a></li> --%>
-<%-- 					</c:if> --%>
-<!-- 					</ul> -->
-
-<%-- 					<c:forEach var="i" items="${pageLinks }" varStatus="stat"> --%>
-<%-- 						<c:choose> --%>
-<%-- 							<c:when test="${curPage == i}"> --%>
-<%-- 								<span class="bbs-strong">${i }</span> --%>
-<%-- 							</c:when> --%>
-<%-- 							<c:otherwise> --%>
-<%-- 								<a href="javascript:goList('${i }')">${i }</a> --%>
-<%-- 							</c:otherwise> --%>
-<%-- 						</c:choose> --%>
-<%-- 					</c:forEach> --%>
-
-<%-- 					<c:if test="${nextLink > 0 }"> --%>
-<%-- 						<a href="javascript:goList('${nextPage }')">[다음]</a> --%>
-<%-- 					</c:if> --%>
-<!-- 				</div> --> 
-<!--  			</div>  --> 
-<!--  		</div>  --> 
-<!--  		</nav> --> 
-
-
-	<div id="list-menu" style="text-align: right;">
-		<input type="button" value="글쓰기" onclick="goWrite()"
-			class="btn btn-info btn-sm active" />
-	</div>
+<!-- 	<div id="list-menu" style="text-align: right;"> -->
+<!-- 		<input type="button" value="글쓰기" onclick="goWrite()" -->
+<!-- 			class="btn btn-info btn-sm active" /> -->
+<!-- 	</div> -->
 	<br />
 	<br />
 	<br />

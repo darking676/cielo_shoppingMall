@@ -9,8 +9,9 @@
 	</ol>
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
+		<div class="carousel-inner" role="listbox">
 		<div class="item active">
-			<img id="image" src="../resources/imgs/bot08-12.jpg" alt="..."
+			<img id="image" src="../resources/imgs/dre58-1.jpg" alt="..."
 				width="100%" />
 		</div>
 		<div class="item">
@@ -18,7 +19,7 @@
 				width="100%" />
 		</div>
 		<div class="item">
-			<img id="image" src="../resources/imgs/dre58-1.jpg" alt="..."
+			<img id="image" src="../resources/imgs/dre49-17.jpg" alt="..."
 				width="100%" />
 		</div>
 	</div>

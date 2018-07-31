@@ -8,7 +8,6 @@ body {
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 <html>
 <head>
 <style type="text/css">
@@ -19,10 +18,10 @@ body {
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@ include file="../template/header.jsp"%>
+<%@ include file="../template2/header.jsp"%>
 </head>
 <body>
-	<%@ include file="../template/header2.jsp"%>
+	<%@ include file="../template2/header2.jsp"%>
 	<div class="location01">
 		<div class="row">
 			<div class="col-xs-2 col-md-3">
@@ -38,7 +37,7 @@ body {
 				</a>
 			</div>
 			<div class="col-xs-2 col-md-3">
-				<a href="#" class="thumbnail"> <img
+				<a href="/shop01/cart2/" class="thumbnail"> <img
 					src="../resources/imgs/mypage03.jpg" alt="..."
 					class="img-responsive img-rounded">
 				</a>

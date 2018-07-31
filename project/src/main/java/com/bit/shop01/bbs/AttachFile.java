@@ -5,8 +5,9 @@ public class AttachFile {
 	private int attachFileNo;
 	private String filename;
 	private String filetype;
-	private long filesize; 
-	private int bbseditno; 
+	private long filesize;
+	private int bbseditno;
+	private int productNum;
 
 	
 	public AttachFile() {}
@@ -61,6 +62,19 @@ public class AttachFile {
 		this.bbseditno = bbseditno;
 	}
 	
+
+	public int getProductNum() {
+		return productNum;
+	}
+
+
+	public void setProductNum(int productNum) {
+		this.productNum = productNum;
+	}
+	
+	
+
+
 	
 	
 	

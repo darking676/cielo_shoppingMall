@@ -14,7 +14,7 @@ body {
 <style type="text/css">
 .location01 {
 	padding-top: 0px;
-	padding-left: 650px;
+	padding-left: 500px;
 }
 
 hr.line {
@@ -129,10 +129,10 @@ hr.line {
 							<div class="comments">
 								<h4>${comment.memId }</h4>
 								<h5>${comment.bbs_date }</h5>
-								<h6>
-									<a href="javascript:updateComment('${comment.commentno }')">수정</a>
-									| <a href="javascript:deleteComment('${comment.commentno }')">삭제</a>
-								</h6>
+<!-- 								<h6> -->
+<%-- 									<a href="javascript:updateComment('${comment.commentno }')">수정</a> --%>
+<%-- 									| <a href="javascript:deleteComment('${comment.commentno }')">삭제</a> --%>
+<!-- 								</h6> -->
 								<p id="comment${comment.commentno }">${comment.memo }</p>
 
 								<div class="modify-comment">
@@ -152,10 +152,10 @@ hr.line {
 												href="javascript:document.forms.modifyCommentForm${comment.commentno }.submit()">수정하기</a>
 											| <a href="javascript:updateComment('${comment.commentno }')">취소</a>
 										</div>
-										<div>
-											<textarea class="modify-comment-ta" name="memo" rows="7"
-												cols="50">${comment.memo }</textarea>
-										</div>
+<!-- 										<div> -->
+<!-- 											<textarea class="modify-comment-ta" name="memo" rows="7" -->
+<%-- 												cols="50">${comment.memo }</textarea> --%>
+<!-- 										</div> -->
 									</form>
 								</div>
 							</div>
@@ -173,15 +173,16 @@ hr.line {
 									type="hidden" name="curPage" value="${param.curPage }" /> <input
 									type="hidden" name="searchWord" value="${param.searchWord }" />
 							</p>
-							<div id="addComment">
-								<textarea name="memo" rows="7" cols="50"></textarea>
-							</div>
-							<div style="text-align: center;">
-								<input type="submit" value="확인" />
-							</div>
+<!-- 							<div id="addComment"> -->
+<!-- 								<textarea name="memo" rows="7" cols="65"></textarea> -->
+<!-- 						    </div> -->
+<!-- 						    <br /> -->
+<!-- 						    <div style="margin-right: 30px;"> -->
+<!-- 								<input class="btn btn-info btn-sm active" type="submit" value="확인" /> -->
+<!-- 							</div> -->
 						</form>
 
-
+                       <hr class="line">
 
 
 						<div id="next-prev">
@@ -199,10 +200,10 @@ hr.line {
 						<div id="view-menu">
 							<br />
 							<div>
-								<input type="button" value="수정" onclick="goModify();"
-									style="margin-left: 250px" class="btn btn-info btn-sm active" />
-								<input type="button" value="삭제" onclick="goDelete()"
-									style="margin-left: 0px" class="btn btn-info btn-sm active" />
+<!-- 								<input type="button" value="수정" onclick="goModify();" -->
+<!-- 									style="margin-left: 250px" class="btn btn-info btn-sm active" /> -->
+<!-- 								<input type="button" value="삭제" onclick="goDelete()" -->
+<!-- 									style="margin-left: 0px" class="btn btn-info btn-sm active" /> -->
 
 								<input type="button" value="목록"
 									onclick="goList('${param.curPage }')" style="margin-left: 0px"
@@ -220,16 +221,16 @@ hr.line {
 						<a href="javascript:goList('${prevPage }')">[이전]</a>
 					</c:if>
 
-					<c:forEach var="i" items="${pageLinks }" varStatus="stat">
-						<c:choose>
-							<c:when test="${param.curPage == i}">
-								<span class="bbs-strong">${i }</span>
-							</c:when>
-							<c:otherwise>
-								<a href="javascript:goList('${i }')">${i }</a>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
+<%-- 					<c:forEach var="i" items="${pageLinks }" varStatus="stat"> --%>
+<%-- 						<c:choose> --%>
+<%-- 							<c:when test="${param.curPage == i}"> --%>
+<%-- 								<span class="bbs-strong">${i }</span> --%>
+<%-- 							</c:when> --%>
+<%-- 							<c:otherwise> --%>
+<%-- 								<a href="javascript:goList('${i }')">${i }</a> --%>
+<%-- 							</c:otherwise> --%>
+<%-- 						</c:choose> --%>
+<%-- 					</c:forEach> --%>
 
 					<c:if test="${nextLink > 0 }">
 						<a href="javascript:goList('${nextPage }')">[다음]</a>

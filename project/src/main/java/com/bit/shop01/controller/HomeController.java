@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 	Logger log = Logger.getLogger(this.getClass());
 
+	// 비회원
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 
@@ -19,10 +20,19 @@ public class HomeController {
 
 	}
 
+	// 회원
 	@RequestMapping(value = "/home2/", method = RequestMethod.GET)
 	public String home2(Locale locale, Model model) {
 
 		return "home2";
+
+	}
+	
+	// 관리자
+	@RequestMapping(value = "/home3/", method = RequestMethod.GET)
+	public String home3(Locale locale, Model model) {
+
+		return "home3";
 
 	}
 

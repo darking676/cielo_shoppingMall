@@ -37,7 +37,7 @@ public class BbsServiceImpl implements BbsService {
 	  */
 	 public int getTotalRecord(String bbscd, String searchWord) {
 	  HashMap<String,String> hashmap = new HashMap<String,String>();
-	  hashmap.put("bbsd", bbscd);
+	  hashmap.put("bbscd", bbscd);
 	  hashmap.put("searchWord", searchWord);
 
 	  return bbsMapper.getTotalRecord(hashmap);

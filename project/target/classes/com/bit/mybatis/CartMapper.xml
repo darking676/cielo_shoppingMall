@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bit.mybatis.CartMapper">
+
+<!-- 장바구니 추가 -->
+<insert id="insertCart">
+	INSERT INTO basket
+	VALUE (#{basketNum}, #{memId}, #{productNum}, #{quantity})
+</insert>
+
+<!-- 장바구니 목록 -->
+<select id="listCart" resultType="com.bit.shop01.cart.model.entity.CartVo">
+	SELECT
+		c.basketNum,
+		c.memId,
+		p.productNum,
+		m.memName,
+		p.productName,
+		c.quantity,
+		p.price,
+		(price * quantity) sumPrice
+	FROM
+		members m, product p, basket c
+	WHERE m.memId = c.memId
+		AND p.productNum = c.productNum
+		ANd c.memId = #{memId}
+	ORDER BY
+		c.basketNum
+</select>
+
+<!-- 장바구니 전체 금액 -->
+<select id="sumPrice" resultType="int">
+	SELECT 
+		NVL(SUM(price * quantity), 0) AllSum 
+	FROM 
+		basket c, product p 
+	WHERE 
+		c.productNum = p.productNum ANd c.memId = #{memId}
+</select>
+
+<!-- 장바구니 수정 -->
+<update id="updateCartt">
+	UPDATE 
+		basket 
+	SET 
+		quantity = #{quantity} 
+	WHERE 
+		memId = #{memId} AND productNum = #{productNum}
+</update>
+
+<!-- 장바구니 삭제 -->
+<delete id="deleteCart">
+	DELETE FROM basket 
+	WHERE basketNum = #{basketNum}
+</delete>
+
+<!-- 장바구니 상품 확인 -->
+<select id="countCart" resultType="int">
+	SELECT COUNT(*) AS CNT 
+	FROM basket 
+	WHERE 
+		memId = #{memId} AND productNum = #{productNum}
+</select>
+
+<!-- 장바구니 수량 변경 -->
+<update id="updateCart2">
+	UPDATE basket
+	SET quantity = quantity + #{quantity}
+	WHERE
+		memId = #{memId} AND productNum = #{productNum}
+</update>
+
+</mapper>
