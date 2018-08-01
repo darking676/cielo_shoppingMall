@@ -38,10 +38,9 @@
         (#{productNum}, #{procd}, #{productName}, #{price}, #{explan}, #{product_url})
     </insert>
     
- 
     <update id="update" parameterType="productsVo">
         UPDATE product
-        SET productName=#{productName},explan=#{explan}
+        SET productName=#{productName}, explan=#{explan}
         WHERE productNum=#{productNum}
     </update>
    

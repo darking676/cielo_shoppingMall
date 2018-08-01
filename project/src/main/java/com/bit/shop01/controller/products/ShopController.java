@@ -32,8 +32,8 @@ public class ShopController {
 	        if (curPage == null) curPage = 1;
 	        if (searchWord == null) searchWord = "";
 	        
-	        int numPerPage = 10;// 페이지당 레코드 수 지정
-	        int pagePerBlock = 10;// 페이지 링크의 그룹(block)의 크기 지정
+	        int numPerPage = 10;
+	        int pagePerBlock = 10;
 	        
 	        int totalRecord = productsService.getTotalRecord(procd, searchWord);
 	        
@@ -63,7 +63,7 @@ public class ShopController {
 	        model.addAttribute("firstPage", firstPage);
 	        model.addAttribute("lastPage", lastPage);
 	        model.addAttribute("pageLinks", pageLinks);
-	        model.addAttribute("curPage", curPage);//curPage는 null 값이면 1로 만들어야 하므로
+	        model.addAttribute("curPage", curPage);
 	        
 	       
 	        return "products/outDetail"; 
@@ -75,7 +75,6 @@ public class ShopController {
 	    @RequestMapping(value="/outer_write", method=RequestMethod.GET)
 	    public String outer_write(String procd, Model model) throws Exception {
 	       
-	        //게시판 이름
 	        String pronm = productsService.getProductsNm(procd);
 	        model.addAttribute("pronm", pronm);
 	       
@@ -89,7 +88,6 @@ public class ShopController {
 	        
 	    
 	        
-	        //파일업로드
 	        List<MultipartFile> fileList = mpRequest.getFiles("upload");
 	        for(MultipartFile mf : fileList){
 	        String filename = mf.getOriginalFilename();
@@ -97,7 +95,6 @@ public class ShopController {
 	        }
 	       
 	        
-	        //파일데이터 삽입
 	        
 	        int size = fileList.size();
 	        for (int i = 0; i < size; i++) {
@@ -120,7 +117,7 @@ public class ShopController {
 	    public String outer_detail(int productNum, Integer curPage, String procd, String searchWord, Model model){
 	    	
 	    	
-	    	File dir = new File("C:\\spring\\spring2018\\project\\src\\main\\webapp\\resources\\imgs2"); 
+	    	File dir = new File("C:\\gitK3\\project\\src\\main\\webapp\\resources\\imgs2"); 
 
 			File[] fileList = dir.listFiles();
 
@@ -131,10 +128,10 @@ public class ShopController {
 
 					if(file.isFile()){
 
-						System.out.println("\t 파일 이름 = " + file.getName());
+						System.out.println("\t ss = " + file.getName());
 
 					} else {
-						System.out.println("파일없음");
+						System.out.println("dd");
 					}
 
 				}
@@ -142,12 +139,11 @@ public class ShopController {
 			System.out.println("end");
 	    	
 	    	
-	    	  int numPerPage = 10;// 페이지당 레코드 수 지정
-	    	  int pagePerBlock = 10;// 페이지 링크의 그룹(block)의 크기 지정
-	    	  if (searchWord == null) searchWord = ""; // 검색어가 null 이면 ""으로 변경 
+	    	  int numPerPage = 10;
+	    	  int pagePerBlock = 10;
+	    	  if (searchWord == null) searchWord = "";  
 	    	  
 	    	  
-	    	  //목록보기
 	    	  int totalRecord = productsService.getTotalRecord(procd, searchWord);
 	    	  System.out.println(curPage);
 	    	  PagingHelper pagingHelper = new PagingHelper(totalRecord, curPage, numPerPage, pagePerBlock);  
@@ -157,7 +153,6 @@ public class ShopController {
 	    	  int end = pagingHelper.getEndRecord();
 	       
 	       
-	        //상세보기
 	        ProductsVo thisProductsVo = productsService.getProductVo(productNum);
 	        ArrayList<AttachFile> attachFileList = productsService.getAttachFileList(productNum);
 	 
@@ -211,7 +206,6 @@ public class ShopController {
 	        ProductsVo thisProductsVo = productsService.getProductVo(productNum);
 	        String pronm = productsService.getProductsNm(procd);
 	         
-	        //수정페이지에서 보일 게시글 정보
 	        model.addAttribute("thisProductsVo", thisProductsVo);
 	        model.addAttribute("pronm", pronm);
 	       
@@ -226,14 +220,12 @@ public class ShopController {
 	       
 	       productsService.update(productsVo);
 	       
-	       //파일업로드
 	       List<MultipartFile> fileList = mpRequest.getFiles("upload");
 	       for(MultipartFile mf : fileList){
 	       String filename = mf.getOriginalFilename();
 	       mf.transferTo(new File(WebContants.BASE_PATH + filename));
 	       }
 	       
-	       //파일데이터 삽입
 	       int size = fileList.size();
 	       for (int i = 0; i < size; i++) {
 	        MultipartFile mpFile = fileList.get(i);
@@ -252,11 +244,6 @@ public class ShopController {
 	    }
 	    
 
-
-
-	// 로그인 후
-
-
 	    @RequestMapping(value="/outer2", method={RequestMethod.GET, RequestMethod.POST})
 	    public String outer2(String procd,  Integer curPage,  Model model ,String searchWord) throws Exception{
 	               
@@ -264,8 +251,8 @@ public class ShopController {
 	        if (curPage == null) curPage = 1;
 	        if (searchWord == null) searchWord = "";
 	        
-	        int numPerPage = 10;// 페이지당 레코드 수 지정
-	        int pagePerBlock = 10;// 페이지 링크의 그룹(block)의 크기 지정
+	        int numPerPage = 10;
+	        int pagePerBlock = 10;
 	        
 	        int totalRecord = productsService.getTotalRecord(procd, searchWord);
 	        
@@ -295,7 +282,7 @@ public class ShopController {
 	        model.addAttribute("firstPage", firstPage);
 	        model.addAttribute("lastPage", lastPage);
 	        model.addAttribute("pageLinks", pageLinks);
-	        model.addAttribute("curPage", curPage);//curPage는 null 값이면 1로 만들어야 하므로
+	        model.addAttribute("curPage", curPage);
 	        
 	       
 	        return "products2/outDetail2"; 
@@ -307,7 +294,6 @@ public class ShopController {
 	    @RequestMapping(value="/outer_write2", method=RequestMethod.GET)
 	    public String outer_write2(String procd, Model model) throws Exception {
 	       
-	        //게시판 이름
 	        String pronm = productsService.getProductsNm(procd);
 	        model.addAttribute("pronm", pronm);
 	       
@@ -319,18 +305,12 @@ public class ShopController {
 	        productsService.insert(productsVo);
 	        productsVo.setProductNum(productsService.getNewProductsVo().getProductNum());
 	        
-	    
-	        
-	        //파일업로드
 	        List<MultipartFile> fileList = mpRequest.getFiles("upload");
 	        for(MultipartFile mf : fileList){
 	        String filename = mf.getOriginalFilename();
 	        mf.transferTo(new File(WebContants.BASE_PATH + filename));
 	        }
 	       
-	        
-	        //파일데이터 삽입
-	        
 	        int size = fileList.size();
 	        for (int i = 0; i < size; i++) {
 	         MultipartFile mpFile = fileList.get(i);
@@ -352,7 +332,7 @@ public class ShopController {
 	    public String outer_detail2(int productNum, Integer curPage, String procd, String searchWord, Model model){
 	    	
 	    	
-	    	File dir = new File("C:\\spring\\spring2018\\project\\src\\main\\webapp\\resources\\imgs2"); 
+	    	File dir = new File("C:\\gitK3\\project\\src\\main\\webapp\\resources\\imgs2"); 
 
 			File[] fileList = dir.listFiles();
 
@@ -363,10 +343,10 @@ public class ShopController {
 
 					if(file.isFile()){
 
-						System.out.println("\t 파일 이름 = " + file.getName());
+						System.out.println("\t fiel name : " + file.getName());
 
 					} else {
-						System.out.println("파일없음");
+						System.out.println("no file");
 					}
 
 				}
@@ -374,9 +354,9 @@ public class ShopController {
 			System.out.println("end");
 	    	
 	    	
-	    	  int numPerPage = 10;// 페이지당 레코드 수 지정
-	    	  int pagePerBlock = 10;// 페이지 링크의 그룹(block)의 크기 지정
-	    	  if (searchWord == null) searchWord = ""; // 검색어가 null 이면 ""으로 변경 
+	    	  int numPerPage = 10;
+	    	  int pagePerBlock = 10;
+	    	  if (searchWord == null) searchWord = "";  
 	    	  
 	    	  
 	    	  //목록보기
@@ -389,7 +369,6 @@ public class ShopController {
 	    	  int end = pagingHelper.getEndRecord();
 	       
 	       
-	        //상세보기
 	        ProductsVo thisProductsVo = productsService.getProductVo(productNum);
 	        ArrayList<AttachFile> attachFileList = productsService.getAttachFileList(productNum);
 	 
@@ -443,7 +422,6 @@ public class ShopController {
 	        ProductsVo thisProductsVo = productsService.getProductVo(productNum);
 	        String pronm = productsService.getProductsNm(procd);
 	         
-	        //수정페이지에서 보일 게시글 정보
 	        model.addAttribute("thisProductsVo", thisProductsVo);
 	        model.addAttribute("pronm", pronm);
 	       
@@ -458,14 +436,12 @@ public class ShopController {
 	       
 	       productsService.update(productsVo);
 	       
-	       //파일업로드
 	       List<MultipartFile> fileList = mpRequest.getFiles("upload");
 	       for(MultipartFile mf : fileList){
 	       String filename = mf.getOriginalFilename();
 	       mf.transferTo(new File(WebContants.BASE_PATH + filename));
 	       }
 	       
-	       //파일데이터 삽입
 	       int size = fileList.size();
 	       for (int i = 0; i < size; i++) {
 	        MultipartFile mpFile = fileList.get(i);
@@ -484,12 +460,6 @@ public class ShopController {
 	    }
 	    
 	    
-	    
-	    
-	    // 관리자 로그인 후 
-	    
-	    
-	    
 	    @RequestMapping(value="/outer3", method={RequestMethod.GET, RequestMethod.POST})
 	    public String outer3(String procd,  Integer curPage,  Model model ,String searchWord) throws Exception{
 	               
@@ -497,8 +467,8 @@ public class ShopController {
 	        if (curPage == null) curPage = 1;
 	        if (searchWord == null) searchWord = "";
 	        
-	        int numPerPage = 10;// 페이지당 레코드 수 지정
-	        int pagePerBlock = 10;// 페이지 링크의 그룹(block)의 크기 지정
+	        int numPerPage = 10;
+	        int pagePerBlock = 10;
 	        
 	        int totalRecord = productsService.getTotalRecord(procd, searchWord);
 	        
@@ -528,7 +498,7 @@ public class ShopController {
 	        model.addAttribute("firstPage", firstPage);
 	        model.addAttribute("lastPage", lastPage);
 	        model.addAttribute("pageLinks", pageLinks);
-	        model.addAttribute("curPage", curPage);//curPage는 null 값이면 1로 만들어야 하므로
+	        model.addAttribute("curPage", curPage);
 	        
 	       
 	        return "products3/outDetail3"; 
@@ -540,7 +510,6 @@ public class ShopController {
 	    @RequestMapping(value="/outer_write3", method=RequestMethod.GET)
 	    public String outer_write3(String procd, Model model) throws Exception {
 	       
-	        //게시판 이름
 	        String pronm = productsService.getProductsNm(procd);
 	        model.addAttribute("pronm", pronm);
 	       
@@ -552,9 +521,6 @@ public class ShopController {
 	        productsService.insert(productsVo);
 	        productsVo.setProductNum(productsService.getNewProductsVo().getProductNum());
 	        
-	    
-	        
-	        //파일업로드
 	        List<MultipartFile> fileList = mpRequest.getFiles("upload");
 	        for(MultipartFile mf : fileList){
 	        String filename = mf.getOriginalFilename();
@@ -562,7 +528,6 @@ public class ShopController {
 	        }
 	       
 	        
-	        //파일데이터 삽입
 	        
 	        int size = fileList.size();
 	        for (int i = 0; i < size; i++) {
@@ -585,7 +550,7 @@ public class ShopController {
 	    public String outer_detail3(int productNum, Integer curPage, String procd, String searchWord, Model model){
 	    	
 	    	
-	    	File dir = new File("C:\\spring\\spring2018\\project\\src\\main\\webapp\\resources\\imgs2"); 
+	    	File dir = new File("C:\\gitK3\\project\\src\\main\\webapp\\resources\\imgs2"); 
 
 			File[] fileList = dir.listFiles();
 
@@ -596,10 +561,10 @@ public class ShopController {
 
 					if(file.isFile()){
 
-						System.out.println("\t 파일 이름 = " + file.getName());
+						System.out.println("\t ss " + file.getName());
 
 					} else {
-						System.out.println("파일없음");
+						System.out.println("dd");
 					}
 
 				}
@@ -607,12 +572,11 @@ public class ShopController {
 			System.out.println("end");
 	    	
 	    	
-	    	  int numPerPage = 10;// 페이지당 레코드 수 지정
-	    	  int pagePerBlock = 10;// 페이지 링크의 그룹(block)의 크기 지정
-	    	  if (searchWord == null) searchWord = ""; // 검색어가 null 이면 ""으로 변경 
+	    	  int numPerPage = 10;
+	    	  int pagePerBlock = 10;
+	    	  if (searchWord == null) searchWord = ""; 
 	    	  
 	    	  
-	    	  //목록보기
 	    	  int totalRecord = productsService.getTotalRecord(procd, searchWord);
 	    	  System.out.println(curPage);
 	    	  PagingHelper pagingHelper = new PagingHelper(totalRecord, curPage, numPerPage, pagePerBlock);  
@@ -622,7 +586,6 @@ public class ShopController {
 	    	  int end = pagingHelper.getEndRecord();
 	       
 	       
-	        //상세보기
 	        ProductsVo thisProductsVo = productsService.getProductVo(productNum);
 	        ArrayList<AttachFile> attachFileList = productsService.getAttachFileList(productNum);
 	 
@@ -676,13 +639,11 @@ public class ShopController {
 	        ProductsVo thisProductsVo = productsService.getProductVo(productNum);
 	        String pronm = productsService.getProductsNm(procd);
 	         
-	        //수정페이지에서 보일 게시글 정보
 	        model.addAttribute("thisProductsVo", thisProductsVo);
 	        model.addAttribute("pronm", pronm);
 	       
 	        return "products3/outer_edit3";
 	    }
-	   
 	    
 	    
 	    @RequestMapping(value="/outer_edit3", method=RequestMethod.POST)
@@ -691,14 +652,12 @@ public class ShopController {
 	       
 	       productsService.update(productsVo);
 	       
-	       //파일업로드
 	       List<MultipartFile> fileList = mpRequest.getFiles("upload");
 	       for(MultipartFile mf : fileList){
 	       String filename = mf.getOriginalFilename();
 	       mf.transferTo(new File(WebContants.BASE_PATH + filename));
 	       }
 	       
-	       //파일데이터 삽입
 	       int size = fileList.size();
 	       for (int i = 0; i < size; i++) {
 	        MultipartFile mpFile = fileList.get(i);
@@ -717,12 +676,4 @@ public class ShopController {
 	    }
 	    
 	    
-	    
-	    
 }
-
-	
-
-
-	
-

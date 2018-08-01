@@ -10,7 +10,6 @@
 		VALUES (#{memId}, #{memName}, #{memPassword}, #{email},	#{address}, #{hp})
 	</insert>
 
-
 	<select id="login" resultType="memVo">
 		SELECT * FROM MEMBERS
 		WHERE MEMID = #{memId} AND MEMPASSWORD = #{memPassword}

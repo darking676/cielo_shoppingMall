@@ -55,6 +55,7 @@ hr.line {
 		var form = document.getElementById("deleteForm");
 		form.submit();
 	}
+	
 </script>
 <%@ include file="../template3/header.jsp"%>
 </head>
@@ -190,7 +191,7 @@ hr.line {
 						type="hidden" name="searchWord" value="${param.searchWord }" />
 				</p>
 			</form>
-
+			
 		</div>
 </body>
 </html>

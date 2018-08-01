@@ -10,10 +10,6 @@ body {
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page session="true"%>
-<%
-	String memId = request.getParameter("memId");
-	request.getSession().setAttribute("memId", memId);
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,9 +59,8 @@ body {
 			장바구니가 비었습니다.
 		</c:when>
 		<c:otherwise>장바구니 목록 출력
-			<form name="form1" id="form1" method="post" action="${path }/shop01/cart2/update">
+			<form name="form1" id="form1" method="post" action="/shop01/cart2/">
 				<table border="1">
-						<%memId = (String) session.getAttribute("memId"); %>
 					<tr>
 						<th>상품명</th>
 						<th>가 격</th>
@@ -89,7 +84,7 @@ body {
 							<fmt:formatNumber pattern="###,###,###" value="${cartVo.price }" />
 						</td>
 						<td>
-							<button type="button" id="btnDel"><a href="${path }/shop01/cart2/delete?cartNum=${cartVo.cartNum }">삭제</a></button>
+							<button type="button" id="btnDel"><a href="/shop01/cart2/delete?cartNum=${cartVo.basketNum }">삭제</a></button>
 						</td>
 					</tr>
 					</c:forEach>

@@ -34,12 +34,15 @@ public class MembersController {
 	@RequestMapping(value = "/login/", method = RequestMethod.POST)
 	public String login(String memId, String memPassword, HttpSession session) throws Exception {
 		MemVo loginMem = memService.login(memId, memPassword);
-		System.out.println(memId + memPassword);
+		System.out.println("member controller" + memId + " / " + memPassword);
 		if(memId.equals("manager")) {
+			System.out.println("equal");
 				session.setAttribute("check", loginMem);
 				return "info2/manPage";
 		}else if (loginMem != null) {
+			System.out.println("is not null");
 					session.setAttribute("check", loginMem);
+					System.out.println("set attribute");
 					return "/info/logAfter";
 		} else {
 			return "/info/login";

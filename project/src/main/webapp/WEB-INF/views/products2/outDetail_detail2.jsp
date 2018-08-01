@@ -55,6 +55,9 @@ hr.line {
 		var form = document.getElementById("deleteForm");
 		form.submit();
 	}
+	function goCart() {
+		var form = document.getElementById("cartForm");
+	}
 </script>
 <%@ include file="../template2/header.jsp"%>
 </head>
@@ -76,19 +79,36 @@ hr.line {
 					<h3>${pronm }</h3>
 					<hr class="line">
 					<div id="outer">
-						<h3>제목: ${thisProductsVo.productNum}</h3>
+						<h3>번호 : ${thisProductsVo.productNum}</h3>
 						<hr class="line">
 						<table>
 							<tr>
-								<br />
-								<th>작성자 ${thisProductsVo.productName }</th>
-								<th style="width: 60px; text-align: right;">DATE&nbsp;&nbsp;</th>
+								<th>상품 : ${thisProductsVo.productName }</th>
+<!-- 								<th style="width: 60px; text-align: right;">DATE&nbsp;&nbsp;</th> -->
 <%-- 								<th style="width: 90px; color: #555;">${thisBbsVo.bbs_date }</th> --%>
 <%-- 								<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;조회수 ${thisBbsVo.hit }</th> --%>
 							</tr>
 						</table>
 						<hr class="line">
-						
+						<div>
+							<table>
+								<tr>
+									<th>가격 : ${thisProductsVo.price }</th>
+									<td colspan="1">
+										<!-- 수량 -->
+										<form name="form1" method="get" action="/shop01/cart2/">
+											<input type="hidden" name="productNum" value="6">
+											<select name="quantity">
+												<c:forEach begin="1" end="10" var="i">
+													<option value="${i }">${i }</option>
+												</c:forEach>
+											</select>
+										</form>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div> </div>
 						<div id="gul-content">
 						<p id="file-list" style="text-align: right;">
 								<c:forEach var="file" items="${attachFileList }"
@@ -121,6 +141,7 @@ hr.line {
 								<input type="button" value="목록"
 									onclick="goList('${param.curPage }')" style="margin-left: 0px"
 									class="btn btn-info btn-sm active" />
+								<input type="submit" class="btn btn-info btn-sm active" value="장바구니에 담기" />
 							</div>
 						</div>
 					</div>
@@ -188,6 +209,18 @@ hr.line {
 					<input type="hidden" name="procd" value="${param.procd }" /> <input
 						type="hidden" name="curPage" value="${param.curPage }" /> <input
 						type="hidden" name="searchWord" value="${param.searchWord }" />
+				</p>
+			</form>
+			
+			<!-- 장바구니 담기 -->
+			<form id="cartForm" action="/shop1/cart2/" method="get">
+				<p>
+					<input type="button" name="memId"  value="${param.memId }" />
+					<input type="button" name="productNum"  value="${param.productNum }" />
+					<input type="button" name="productName"  value="${param.productName }" />
+					<input type="button" name="price"  value="${param.price }" />
+					<input type="button" name="quantity"  value="${param.quantity }" />
+					<input type="button" name="sumPrice"  value="${param.price } * ${param.quantity }" />
 				</p>
 			</form>
 

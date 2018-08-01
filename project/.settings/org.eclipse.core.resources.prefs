@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/resources/com/bit/mybatis/ProductsMapper.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/bbs/not_bbs.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/template/footer.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/template/header2.jsp=UTF-8

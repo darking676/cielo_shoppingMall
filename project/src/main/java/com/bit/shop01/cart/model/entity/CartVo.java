@@ -2,29 +2,36 @@ package com.bit.shop01.cart.model.entity;
 
 public class CartVo {
 
-	private int cartNum;
+	private int basketNum;
 	private String memId;
-	private int productNum;
 	private int quantity;
+	private String productName;
+	private int productNum;
+	private int price;
+	private int sumPrice;
 	
 	public CartVo() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CartVo(int cartNum, String memId, int productNum, int quantity) {
+	public CartVo(int basketNum, String memId, int quantity, String productName, int productNum, int price,
+			int sumPrice) {
 		super();
-		this.cartNum = cartNum;
+		this.basketNum = basketNum;
 		this.memId = memId;
-		this.productNum = productNum;
 		this.quantity = quantity;
+		this.productName = productName;
+		this.productNum = productNum;
+		this.price = price;
+		this.sumPrice = sumPrice;
 	}
 
-	public int getCartNum() {
-		return cartNum;
+	public int getBasketNum() {
+		return basketNum;
 	}
 
-	public void setCartNum(int cartNum) {
-		this.cartNum = cartNum;
+	public void setBasketNum(int basketNum) {
+		this.basketNum = basketNum;
 	}
 
 	public String getMemId() {
@@ -35,14 +42,6 @@ public class CartVo {
 		this.memId = memId;
 	}
 
-	public int getProductNum() {
-		return productNum;
-	}
-
-	public void setProductNum(int productNum) {
-		this.productNum = productNum;
-	}
-
 	public int getQuantity() {
 		return quantity;
 	}
@@ -51,14 +50,55 @@ public class CartVo {
 		this.quantity = quantity;
 	}
 
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public int getProductNum() {
+		return productNum;
+	}
+
+	public void setProductNum(int productNum) {
+		this.productNum = productNum;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getSumPrice() {
+		return sumPrice;
+	}
+
+	public void setSumPrice(int sumPrice) {
+		this.sumPrice = sumPrice;
+	}
+
+	@Override
+	public String toString() {
+		return "CartVo [basketNum=" + basketNum + ", memId=" + memId + ", quantity=" + quantity + ", productName="
+				+ productName + ", productNum=" + productNum + ", price=" + price + ", sumPrice=" + sumPrice + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + cartNum;
+		result = prime * result + basketNum;
 		result = prime * result + ((memId == null) ? 0 : memId.hashCode());
+		result = prime * result + price;
+		result = prime * result + ((productName == null) ? 0 : productName.hashCode());
 		result = prime * result + productNum;
 		result = prime * result + quantity;
+		result = prime * result + sumPrice;
 		return result;
 	}
 
@@ -71,18 +111,28 @@ public class CartVo {
 		if (getClass() != obj.getClass())
 			return false;
 		CartVo other = (CartVo) obj;
-		if (cartNum != other.cartNum)
+		if (basketNum != other.basketNum)
 			return false;
 		if (memId == null) {
 			if (other.memId != null)
 				return false;
 		} else if (!memId.equals(other.memId))
 			return false;
+		if (price != other.price)
+			return false;
+		if (productName == null) {
+			if (other.productName != null)
+				return false;
+		} else if (!productName.equals(other.productName))
+			return false;
 		if (productNum != other.productNum)
 			return false;
 		if (quantity != other.quantity)
 			return false;
+		if (sumPrice != other.sumPrice)
+			return false;
 		return true;
 	}
-	
+
+
 }

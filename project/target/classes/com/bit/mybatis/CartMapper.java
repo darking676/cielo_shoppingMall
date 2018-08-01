@@ -1,12 +1,13 @@
-package com.bit.shop01.cart.model;
+package com.bit.mybatis;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.bit.shop01.cart.model.entity.CartVo;
 
-public interface CartDao {
-
+public interface CartMapper {
+	
+	public int test();
+	
 	//장바구니 추가
 	public int insert(CartVo vo);
 
@@ -28,5 +29,4 @@ public interface CartDao {
 
 	//장바구니 수량 변경
 	public void updateCart2(CartVo vo);
-
 }

@@ -20,6 +20,9 @@
 		<typeAlias type="com.bit.shop01.bbs.Comment" alias="comment"/>
 		<typeAlias type="com.bit.shop01.products.ProductsVo" alias="productsVo"/>
 		<typeAlias type="com.bit.shop01.products.ProductsVo2" alias="productsVo2"/>
+		<typeAlias type="com.bit.shop01.cart.model.entity.CartVo" alias="cartVo"/>
+<!-- 		<typeAlias type="com.bit.shop01.cart.model.entity.Cart2Vo" alias="cart2Vo"/> -->
+		<!-- <typeAlias type="com.bit.mybatis.CartMapper" alias="cart"/> -->
 	</typeAliases>
 
 	<mappers>
@@ -28,6 +31,4 @@
 		<mapper resource="com/bit/mybatis/ProductsMapper.xml" />
 		<mapper resource="com/bit/mybatis/CartMapper.xml" />
 	</mappers>
-
-
 </configuration>

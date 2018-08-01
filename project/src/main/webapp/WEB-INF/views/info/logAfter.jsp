@@ -7,6 +7,7 @@ body {
 </style>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page session="true"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,6 +129,7 @@ body {
 		</div>
 		<ul class="nav navbar-nav navbar-right" style="font-size: 18;">
 			<br />
+<!-- 			<li><a>session 받아오자</a></li> -->
 			<li><a>${check.memId}</a></li>
 			<li><a href="/shop01/">Logout</a></li>
 			<li><a href="/shop01/mypage/">MyPage</a></li>

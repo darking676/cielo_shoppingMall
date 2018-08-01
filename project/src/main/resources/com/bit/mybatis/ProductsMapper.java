@@ -10,35 +10,34 @@ import com.bit.shop01.products.ProductsVo;
 public interface ProductsMapper {
 	
 	 /*
-	  * 특정 게시판의 총 게시물 갯수 구하기
+	  * �듅�젙 寃뚯떆�뙋�쓽 珥� 寃뚯떆臾� 媛��닔 援ы븯湲�
 	  */
 	 public int getTotalRecord(HashMap<String, String> hashmap);
-
 	 /*
-     * 게시판 목록
+     * 寃뚯떆�뙋 紐⑸줉
      */
     public ArrayList<ProductsVo> getProductsList(HashMap<String, String> hashmap);
     /*
-     * 새로운 게시글 추가
+     * �깉濡쒖슫 寃뚯떆湲� 異붽�
      */
     public int insert(ProductsVo productsVo);
     /*
-     * 게시글 수정
+     * 寃뚯떆湲� �닔�젙
      */
     public void update(ProductsVo productsVo);   
    
     /*
-     * 게시글 삭제
+     * 寃뚯떆湲� �궘�젣
      */
     public void delete(int productNum);
 
     /*
-     * 게시판 이름(종류)
+     * 寃뚯떆�뙋 �씠由�(醫낅쪟)
      */
     public String getProductsNum(String procd);
     
     /*
-     * 게시판 객체 가져오기
+     * 寃뚯떆�뙋 媛앹껜 媛��졇�삤湲�
      */
     public ProductsVo getProductsVo(int productNum);
 
@@ -47,17 +46,17 @@ public interface ProductsMapper {
 	public ProductsVo getNextProductsVo(HashMap<String, String> hashmap);
 	
 	 /*
-	  * 가장 최근 게시물 가져오기
+	  * 媛��옣 理쒓렐 寃뚯떆臾� 媛��졇�삤湲�
 	  */
 	 public ProductsVo getNewProductsVo();
 	 
 	 /*
-	  * 첨부파일 추가
+	  * 泥⑤��뙆�씪 異붽�
 	  */
 	 public void insertAttachFile(AttachFile attachFile);
 
 	 /*
-	  *  게시글의 첨부파일 리스트
+	  *  寃뚯떆湲��쓽 泥⑤��뙆�씪 由ъ뒪�듃
 	  */
 	 public ArrayList<AttachFile> getAttachFileList(int productNum);
 }
