@@ -6,7 +6,7 @@ import com.bit.shop01.cart.model.entity.CartVo;
 
 public interface CartMapper {
 	
-	public int test();
+//	public int test();
 	
 	//장바구니 추가
 	public int insert(CartVo vo);
@@ -15,7 +15,7 @@ public interface CartMapper {
 	public int countCart(int productNum, String memId);
 
 	//장바구니 수정
-	public int updateCart(CartVo vo);
+	public int eidtCart(CartVo vo);
 
 	//장바구니 목록
 //	public ArrayList<CartVo> listCart(String memId);
@@ -28,5 +28,6 @@ public interface CartMapper {
 	public void delete(int cartNum);
 
 	//장바구니 수량 변경
-	public void updateCart2(CartVo vo);
+	public int updateCart(CartVo vo);
+
 }

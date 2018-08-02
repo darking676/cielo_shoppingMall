@@ -17,7 +17,7 @@
 </select>
 
 <!-- 장바구니 목록 -->
-<select id="listCart" resultType="cartVo" parameterType="string">
+<select id="listCart" resultType="cartVo">
 <!-- 	SELECT -->
 <!-- 		c.basketNum, -->
 <!-- 		c.memId, -->
@@ -34,8 +34,8 @@
 <!-- 		ANd c.memId = #{memId} -->
 <!-- 	ORDER BY -->
 <!-- 		c.basketNum -->
-	SELECT a.basketnum, b.productNum, b.productname, b.price, a.quantity, (b.price * a.quantity) as sumPrice
-	FROM basket A, product B where a.memId = #{memId} and a.productNum = b.productNum
+	SELECT a.basketnum, b.productNum, b.productname, b.price, a.quantity, (b.price * a.quantity) sumPrice
+	FROM basket A, product B WHERE a.memId = #{memId} and a.productNum = b.productNum
 </select>
 
 <!-- 장바구니 전체 금액 -->
@@ -49,7 +49,7 @@
 </select>
 
 <!-- 장바구니 수정 -->
-<update id="updateCart">
+<update id="editCart">
 	UPDATE 
 		basket 
 	SET 
@@ -59,7 +59,7 @@
 </update>
 
 <!-- 장바구니 삭제 -->
-<delete id="deleteCart">
+<delete id="delete">
 	DELETE FROM basket 
 	WHERE basketNum = #{basketNum}
 </delete>
@@ -73,9 +73,9 @@
 </select>
 
 <!-- 장바구니 수량 변경 -->
-<update id="updateCart2">
+<update id="updateCart">
 	UPDATE basket
-	SET quantity = quantity + #{quantity}
+	SET quantity = #{quantity}
 	WHERE
 		memId = #{memId} AND productNum = #{productNum}
 </update>

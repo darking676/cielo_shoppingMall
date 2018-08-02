@@ -6,7 +6,7 @@ import com.bit.shop01.cart.model.entity.CartVo;
 
 public interface CartService {
 	
-	public int test();
+//	public int test();
 	
 	//장바구니에 추가
 	public int insert(CartVo vo);
@@ -15,10 +15,10 @@ public interface CartService {
 	public int countCart(int productNum, String memId);
 
 	//장바구니 수정
-	public int updateCart(CartVo vo);
+	public int editCart(CartVo vo);
 
 	//장바구니 수량 변경
-	public void updateCart2(CartVo vo);
+	public void updateCart(CartVo vo);
 	
 	//장바구니 목록
 	public List<CartVo> listCart(String memId);

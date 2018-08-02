@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bit.mybatis.CartMapper;
-import com.bit.shop01.cart.model.entity.Cart2Vo;
 import com.bit.shop01.cart.model.entity.CartVo;
 
 @Service
@@ -27,9 +26,9 @@ public class CartServiceImpl implements CartService {
 		return cartMapper.insert(vo);
 	}
 	
-	public int test() {
-		return cartMapper.test();
-	}
+//	public int test() {
+//		return cartMapper.test();
+//	}
 
 	//장바구니에서 상품 확인
 	public int countCart(int productNum, String memId) {
@@ -37,8 +36,8 @@ public class CartServiceImpl implements CartService {
 	}
 
 	//장바구니 수정
-	public int updateCart(CartVo vo) {
-		return cartMapper.updateCart(vo);
+	public int editCart(CartVo vo) {
+		return cartMapper.eidtCart(vo);
 	}
 
 	//장바구니 목록
@@ -59,14 +58,10 @@ public class CartServiceImpl implements CartService {
 	}
 
 	//장바구니 상품 수량 변경
-	public void updateCart2(Cart2Vo vo) {
-		// TODO Auto-generated method stub
+	public void updateCart(CartVo vo) {
+		cartMapper.updateCart(vo);
 	}
 	
-	public void updateCart2(CartVo vo) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	
 }

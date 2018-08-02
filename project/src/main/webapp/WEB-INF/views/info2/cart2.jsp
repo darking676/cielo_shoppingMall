@@ -31,22 +31,24 @@ body {
 		width: 90%;
 	}
 	
+	body>p {
+		padding-top: 10px;
+		padding-left: 300px;
+		right: 0; left: 0; margin-bottom: auto; margin-left: auto; margin-right: auto; margin-top: auto; 
+	}
+	
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
-		//Go List
-		$("#btnList").click(function(){
-			location.href="/shop01/cart2/list";
-		});
 		
 		//Go Home
 		$('#btnHome').click(function() {
 			location.href="/shop01/home2/";
 		});
 		
-		//delete
-// 		$('#btnDel').click(function() {
-// 			"/shop01/cart2/delete?cartNum=${cartVo.cartNum }";
+		//Update
+// 		$('#btnUpdate').click(function() {
+// 			location.href = "/shop01/cart2/update/";
 // 		});
 	});
 </script>
@@ -55,11 +57,11 @@ body {
 <%@ include file="../template2/header2.jsp"%>
 	<h2>장바구니</h2>
 	<c:choose>
-		<c:when test="${map.count == 0 }">
-			장바구니가 비었습니다.
+		<c:when test="${map.count < 0 }">
+			<p>장바구니가 비었습니다.</p>
 		</c:when>
-		<c:otherwise>장바구니 목록 출력
-			<form name="form1" id="form1" method="post" action="/shop01/cart2/">
+		<c:otherwise>
+			<form name="form1" id="form1" method="post" action="/shop01/cart2/update">
 				<table border="1">
 					<tr>
 						<th>상품명</th>
@@ -81,10 +83,10 @@ body {
 							<input type="hidden" name="productNum" value="${cartVo.productNum }" />
 						</td>
 						<td style="width: 100px" align="right">
-							<fmt:formatNumber pattern="###,###,###" value="${cartVo.price }" />
+							<fmt:formatNumber pattern="###,###,###" value="${cartVo.sumPrice }" />
 						</td>
 						<td>
-							<button type="button" id="btnDel"><a href="/shop01/cart2/delete?cartNum=${cartVo.basketNum }">삭제</a></button>
+							<button type="button" id="btnDel"><a href="/shop01/cart2/delete/?basketNum=${cartVo.basketNum }">삭제</a></button>
 						</td>
 					</tr>
 					</c:forEach>
@@ -97,13 +99,12 @@ body {
 					</tr>
 				</table>
 				<input type="hidden" name="count" value="${map.count }"><br/>
-				<button type="button" id="btnUpdate">수정</button>&nbsp;&nbsp;
+				<button type="submit" id="btnUpdate">수정</button>&nbsp;&nbsp;
 				<button type="button" id="btnSel">주문하기</button>&nbsp;&nbsp;<!-- 결제로 이동 -->
 				<button type="button" id="btnHome">쇼핑 계속하기</button>
 			</form>
 		</c:otherwise>
 	</c:choose>
-	<button type="button" id="btnList">상품목록</button>
 <%@ include file="../template/footer.jsp"%>
 </body>
 </html>

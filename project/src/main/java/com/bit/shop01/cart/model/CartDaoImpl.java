@@ -32,8 +32,8 @@ public class CartDaoImpl implements CartMapper {
 
 	//장바구니 수정
 	@Override
-	public int updateCart(CartVo vo) {
-		return sqlSession.update("cart.updateCart", vo);
+	public int eidtCart(CartVo vo) {
+		return sqlSession.update("cart.eidtCart", vo);
 	}
 
 	//장바구니 목록
@@ -43,12 +43,12 @@ public class CartDaoImpl implements CartMapper {
 		return sqlSession.selectList("cart.listCart", memId);
 	}
 	
-	public int test() {
-		System.out.println("test start");
-		int result = sqlSession.selectOne("cart.test");
-		System.out.println("test end");
-		return result;
-	}
+//	public int test() {
+//		System.out.println("test start");
+//		int result = sqlSession.selectOne("cart.test");
+//		System.out.println("test end");
+//		return result;
+//	}
 
 	//장바구니 금액 합계
 	@Override
@@ -66,8 +66,9 @@ public class CartDaoImpl implements CartMapper {
 
 	//장바구니 상품 수량 변경
 	@Override
-	public void updateCart2(CartVo vo) {
-		sqlSession.update("cart.sumCart", vo);
+	public int updateCart(CartVo vo) {
+		return sqlSession.update("cart.updateCart", vo);
 	}
+
 
 }

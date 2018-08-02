@@ -42,27 +42,28 @@ public class CartController {
 //	}
 	
 	//장바구니에 상품 추가
-	@RequestMapping(value="/insert")
-	public String insert(@ModelAttribute CartVo vo, HttpSession session) {
-		String memId = (String) session.getAttribute("memId");
-		vo.setMemId(memId);
+	@RequestMapping(value="/cart2/insert")
+	public String insert(@ModelAttribute CartVo cartVo, HttpSession session) {
+		MemVo loginMember = (MemVo)session.getAttribute("check");
+		String memId = loginMember.getMemId();
+		cartVo.setMemId(memId);
 		
 		//상품이 있는지 검사
-		int count = service.countCart(vo.getProductNum(), memId);
+		int count = service.countCart(cartVo.getProductNum(), memId);
 		if (count == 0) {
 			//없으면 update(수정)
-			service.updateCart(vo);
+			service.updateCart(cartVo);
 		} else {
 			//있으면 insert
-			service.insert(vo);
+			service.insert(cartVo);
 		}
 		
 		if(count == 0) {
 			//없으면 insert
-			service.insert(vo);
+			service.insert(cartVo);
 		} else {
 			//있으면 update(수정)
-			service.updateCart(vo);
+			service.updateCart(cartVo);
 		}
 		
 		return "redirect:/cart2/";
@@ -79,9 +80,10 @@ public class CartController {
 		Map<String, Object> map = new HashMap<String, Object>();
 //		List<CartVo> list = service.listCart(memId);
 		List<CartVo> list = new ArrayList<CartVo>();
-		int test = service.test();
 		
-		System.out.println("test : " + test);
+//		int test = service.test();
+//		System.out.println("test : " + test);
+		
 		list =  service.listCart(memId);
 		int sumPrice = service.sumPrice(memId);
 		
@@ -99,32 +101,41 @@ public class CartController {
 		map.put("AllSum", sumPrice + fee);	//주문금액 합계
 		
 		mav.setViewName("info2/cart2");		//뷰 저장
-		mav.addObject("map", map);		//변수 저장
+		mav.addObject("map", map);			//변수 저장
 		
 		return mav;
 	}
 	
 	//장바구니에서 상품 삭제
-	@RequestMapping(value="/delete")
-	public String delete(@RequestParam int cartNum) {
-		service.delete(cartNum);
-		return "redirect:/cart2/";
+	@RequestMapping(value="/cart2/delete", method = RequestMethod.GET)
+	public String delete(int basketNum) {
+		service.delete(basketNum);
+		return "redirect:/cart2/?basketNum="+basketNum;
 	}
 	
 	//장바구니에서 수정
-	@RequestMapping(value="/update/")
-	public String update(@RequestParam int[] quantity, @RequestParam int[] productNum, HttpSession session) {
+	@RequestMapping(value="/cart2/update")
+//	public String update(int quantity, int productNum, HttpSession session, HttpServletRequest req) {
+	public String update(@RequestParam int[] quantity, @RequestParam int[] productNum, HttpSession session, HttpServletRequest req) {
 		MemVo loginMember = (MemVo)session.getAttribute("check");
 		String memId = loginMember.getMemId();
+		
+//		quantity=Integer.parseInt(req.getParameter("quantity"));
+//		productNum=Integer.parseInt(req.getParameter("productNum"));
+		System.out.println("???1 "+quantity);
+		
 		for(int i=0; i<productNum.length; i++) {
+			System.out.println("???2 "+quantity[i]);
 			CartVo cartVo = new CartVo();
 			cartVo.setMemId(memId);
 			cartVo.setQuantity(quantity[i]);
 			cartVo.setProductNum(productNum[i]);
 			service.updateCart(cartVo);
 		}
+		System.out.println("???3 "+quantity);
 		
-		return "/info2/cart2/";
+//		return "redirect:/cart2/?quantity="+quantity+"&&?productNum="+productNum;
+		return "redirect:/cart2/";
 	}
 
 }
